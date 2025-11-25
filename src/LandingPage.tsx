@@ -118,7 +118,9 @@ const LandingPage = () => {
             backgroundImage: "url('/global/anteater.png')",
             backgroundSize: "contain",
             backgroundRepeat: "no-repeat",
+            backgroundPosition: "center",
             opacity: 0.25,
+            display: "block",
           }}
         >
         </div>

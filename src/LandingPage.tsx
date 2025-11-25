@@ -108,8 +108,8 @@ const LandingPage = () => {
           }}>
         </div> */}
 
-
-        <div style={{
+        <div
+          style={{
             width: "1440px",
             maxWidth: "100%",
             height: "589px",
@@ -122,8 +122,7 @@ const LandingPage = () => {
             opacity: 0.25,
             display: "block",
           }}
-        >
-        </div>
+        ></div>
       </div>
     </div>
   );

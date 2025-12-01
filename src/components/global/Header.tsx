@@ -103,7 +103,7 @@ export default function Header() {
           }}
         />
         <Image
-          src={"/global/ailogo.png"}
+          src={"/img/global/ailogo.png"}
           alt="ailogo"
           height={60}
           width={60}

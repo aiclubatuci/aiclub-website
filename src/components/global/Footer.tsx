@@ -35,7 +35,7 @@ export default function Footer() {
                 <div className="absolute inset-0 bg-[#D9D9D9]/20 rounded-full blur-xl group-hover:bg-[#D9D9D9]/25 transition-all duration-500 -z-10 scale-150" />
                 <div className="relative">
                   <Image
-                    src={"/global/ailogo.png"}
+                    src={"/img/global/ailogo.png"}
                     alt="AI@UCI Logo"
                     height={52}
                     width={52}

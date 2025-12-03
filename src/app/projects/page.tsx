@@ -1,3 +1,7 @@
+"use client";
+
+import { useState } from "react";
+
 interface Project {
   title: string;
   description: string;
@@ -11,7 +15,7 @@ interface Project {
 
 const projects: Project[] = [
   {
-    title: "Project Alpha",
+    title: "Project A",
     description: "Description of the Project and Company Sponsor",
     sponsor: "Company A",
     tech: ["Python", "AI", "Machine Learning"],
@@ -20,7 +24,7 @@ const projects: Project[] = [
     link: "#",
   },
   {
-    title: "Project Beta",
+    title: "Project B",
     description: "Description of the Project and Company Sponsor",
     sponsor: "Company B",
     tech: ["JavaScript", "Web Dev"],
@@ -28,14 +32,14 @@ const projects: Project[] = [
     date: "2025 - Present",
   },
   {
-    title: "Project Gamma",
+    title: "Project C",
     description: "Description of the Project and Company Sponsor",
     tech: ["Python", "Data Science"],
     status: "ongoing",
     date: "2025 - Present",
   },
   {
-    title: "Project Delta",
+    title: "Project D",
     description: "Description of the Project and Company Sponsor",
     sponsor: "Company C",
     tech: ["React", "Node.js"],
@@ -44,94 +48,224 @@ const projects: Project[] = [
     link: "#",
   },
   {
-    title: "Project Epsilon",
+    title: "Project E",
     description: "Description of the Project and Company Sponsor",
     tech: ["Python", "TensorFlow"],
     status: "completed",
     date: "2024",
   },
   {
-    title: "Project Zeta",
+    title: "Project F",
     description: "Description of the Project and Company Sponsor",
     sponsor: "Company D",
     tech: ["Vue", "Firebase"],
     status: "completed",
     date: "2023 - 2024",
   },
+  {
+    title: "Project G",
+    description: "Description of the Project and Company Sponsor",
+    tech: ["TypeScript", "Next.js"],
+    status: "ongoing",
+    date: "2025 - Present",
+  },
+  {
+    title: "Project H",
+    description: "Description of the Project and Company Sponsor",
+    sponsor: "Company E",
+    tech: ["PyTorch", "Deep Learning"],
+    status: "ongoing",
+    date: "2025 - Present",
+    link: "#",
+  },
+  {
+    title: "Project I",
+    description: "Description of the Project and Company Sponsor",
+    tech: ["Docker", "Kubernetes"],
+    status: "completed",
+    date: "2024",
+  },
+  {
+    title: "Project J",
+    description: "Description of the Project and Company Sponsor",
+    sponsor: "Company F",
+    tech: ["Swift", "iOS"],
+    status: "completed",
+    date: "2023 - 2024",
+    link: "#",
+  },
+  {
+    title: "Project K",
+    description: "Description of the Project and Company Sponsor",
+    tech: ["Rust", "Systems"],
+    status: "ongoing",
+    date: "2025 - Present",
+  },
+  {
+    title: "Project L",
+    description: "Description of the Project and Company Sponsor",
+    sponsor: "Company G",
+    tech: ["Go", "Backend"],
+    status: "ongoing",
+    date: "2025 - Present",
+  },
+  {
+    title: "Project M",
+    description: "Description of the Project and Company Sponsor",
+    tech: ["Flutter", "Mobile"],
+    status: "ongoing",
+    date: "2025 - Present",
+    link: "#",
+  },
+  {
+    title: "Project N",
+    description: "Description of the Project and Company Sponsor",
+    sponsor: "Company H",
+    tech: ["GraphQL", "API"],
+    status: "ongoing",
+    date: "2025 - Present",
+  },
+  {
+    title: "Project O",
+    description: "Description of the Project and Company Sponsor",
+    tech: ["MongoDB", "Database"],
+    status: "completed",
+    date: "2024",
+  },
+  {
+    title: "Project P",
+    description: "Description of the Project and Company Sponsor",
+    sponsor: "Company I",
+    tech: ["AWS", "Cloud"],
+    status: "completed",
+    date: "2023 - 2024",
+    link: "#",
+  },
+  {
+    title: "Project Q",
+    description: "Description of the Project and Company Sponsor",
+    tech: ["Elixir", "Functional"],
+    status: "completed",
+    date: "2024",
+  },
+  {
+    title: "Project R",
+    description: "Description of the Project and Company Sponsor",
+    sponsor: "Company J",
+    tech: ["Angular", "Frontend"],
+    status: "completed",
+    date: "2023 - 2024",
+  },
 ];
 
 function ProjectCard({ project }: { project: Project }) {
-  return (
-    <div className="group bg-white rounded-2xl overflow-hidden hover:shadow-2xl transition-all duration-300">
-      {/* Image Area */}
-      <div className="w-full h-64 bg-gradient-to-br from-gray-300 to-gray-400 relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-gray-300/50 to-gray-400/50 group-hover:scale-105 transition-transform duration-300"></div>
-        {project.link && (
-          <a
-            href={project.link}
-            className="absolute top-3 right-3 bg-white/90 backdrop-blur-sm p-2 rounded-full text-gray-700 hover:text-gray-900 transition-colors shadow-md"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              strokeWidth={2}
-              stroke="currentColor"
-              className="w-4 h-4"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A2.25 2.25 0 0018 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25"
-              />
-            </svg>
-          </a>
+  const content = (
+    <div className="group border border-[#363636]/40 rounded-lg hover:border-[#363636] transition-colors duration-300 overflow-hidden">
+      <div className="w-full aspect-[16/10] bg-[#282828] relative">
+        {project.image ? (
+          <img
+            src={project.image}
+            alt={project.title}
+            className="w-full h-full object-cover"
+          />
+        ) : (
+          <div className="w-full h-full bg-gradient-to-br from-[#2a2a2a] to-[#333]" />
         )}
       </div>
-
-      {/* Content Area */}
-      <div className="p-8 flex flex-col h-64 justify-center items-center text-center">
-        <p className="text-black text-base font-medium leading-relaxed">
+      <div className="p-5">
+        <div className="flex items-start justify-between gap-4 mb-2">
+          <h3 className="text-white text-sm">{project.title}</h3>
+          <span className="text-[10px] text-gray-600 uppercase tracking-[0.1em] shrink-0">
+            {project.date}
+          </span>
+        </div>
+        <p className="text-gray-500 text-xs leading-relaxed mb-3">
           {project.description}
         </p>
+        <div className="flex flex-wrap gap-1.5">
+          {project.tech.map((t, i) => (
+            <span
+              key={i}
+              className="text-[10px] text-gray-600 uppercase tracking-[0.1em]"
+            >
+              {t}
+              {i < project.tech.length - 1 && " ·"}
+            </span>
+          ))}
+        </div>
       </div>
     </div>
+  );
+
+  return project.link ? (
+    <a href={project.link} target="_blank" rel="noopener noreferrer">
+      {content}
+    </a>
+  ) : (
+    content
   );
 }
 
 export default function Projects() {
+  const [ongoingExpanded, setOngoingExpanded] = useState(false);
+  const [completedExpanded, setCompletedExpanded] = useState(false);
+
   const ongoingProjects = projects.filter((p) => p.status === "ongoing");
   const completedProjects = projects.filter((p) => p.status === "completed");
 
-  return (
-    <div className="min-h-screen pt-24 pb-16 px-4 sm:px-8 md:px-16 lg:px-24">
-      <div className="max-w-7xl mx-auto">
-        {/* Ongoing Projects Section */}
-        <section className="mb-24">
-          <h2 className="text-5xl font-bold text-white text-center mb-12">
-            Ongoing Projects
-          </h2>
+  const displayedOngoing = ongoingExpanded
+    ? ongoingProjects
+    : ongoingProjects.slice(0, 6);
+  const displayedCompleted = completedExpanded
+    ? completedProjects
+    : completedProjects.slice(0, 6);
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
-            {ongoingProjects.map((project, index) => (
+  const hasMoreOngoing = ongoingProjects.length > 6;
+  const hasMoreCompleted = completedProjects.length > 6;
+
+  return (
+    <div className="min-h-screen pt-36 pb-16 px-4 sm:px-8 md:px-16 lg:px-24">
+      <div className="max-w-7xl mx-auto">
+        <section className="mb-20">
+          <h2 className="text-xs uppercase tracking-[0.15em] text-gray-500 mb-8">
+            Ongoing
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 max-w-6xl mx-auto">
+            {displayedOngoing.map((project, index) => (
               <ProjectCard key={index} project={project} />
             ))}
           </div>
+          {hasMoreOngoing && (
+            <button
+              onClick={() => setOngoingExpanded(!ongoingExpanded)}
+              className="mt-8 text-xs text-gray-500 uppercase tracking-[0.15em] hover:text-gray-400 transition-colors duration-300 mx-auto block"
+            >
+              {ongoingExpanded
+                ? "Show Less"
+                : `Show All (${ongoingProjects.length})`}
+            </button>
+          )}
         </section>
 
-        {/* Previous Projects Section */}
         <section>
-          <h2 className="text-5xl font-bold text-white text-center mb-12">
-            Previous Projects
+          <h2 className="text-xs uppercase tracking-[0.15em] text-gray-500 mb-8">
+            Previous
           </h2>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
-            {completedProjects.map((project, index) => (
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 max-w-6xl mx-auto">
+            {displayedCompleted.map((project, index) => (
               <ProjectCard key={index} project={project} />
             ))}
           </div>
+          {hasMoreCompleted && (
+            <button
+              onClick={() => setCompletedExpanded(!completedExpanded)}
+              className="mt-8 text-xs text-gray-500 uppercase tracking-[0.15em] hover:text-gray-400 transition-colors duration-300 mx-auto block"
+            >
+              {completedExpanded
+                ? "Show Less"
+                : `Show All (${completedProjects.length})`}
+            </button>
+          )}
         </section>
       </div>
     </div>

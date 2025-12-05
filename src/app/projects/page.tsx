@@ -1,3 +1,7 @@
+"use client";
+
+import { useState } from "react";
+
 interface Project {
   title: string;
   description: string;
@@ -11,127 +15,173 @@ interface Project {
 
 const projects: Project[] = [
   {
-    title: "Project Alpha",
-    description: "Description of the Project and Company Sponsor",
-    sponsor: "Company A",
-    tech: ["Python", "AI", "Machine Learning"],
+    title: "Sunstone Cities",
+    description:
+      "Sunstone Cities specializes in economic development, infrastructure planning, and public private investment partnerships. Our students are helping to build an automated city economic report system used by real city officials.",
+    sponsor: "Sunstone Cities",
+    tech: ["Economic Development", "Data Analytics", "Automation"],
     status: "ongoing",
     date: "2025 - Present",
-    link: "#",
+    image: "/img/projects/sunstone.png",
   },
   {
-    title: "Project Beta",
-    description: "Description of the Project and Company Sponsor",
-    sponsor: "Company B",
-    tech: ["JavaScript", "Web Dev"],
+    title: "Sound Ethics",
+    description:
+      "Sound Ethics advocates for the use of ethical AI in the music industry. They are partnered with artists, educational institutions, industry stakeholders, and legal experts. Our students are building a VST plugin that embeds a conversational AI directly into a DAW as well as ML models in audio generation, voice cloning, and stem separation.",
+    sponsor: "Sound Ethics",
+    tech: ["AI", "VST Plugin", "Audio ML", "Music Technology"],
     status: "ongoing",
     date: "2025 - Present",
+    image: "/img/projects/soundethics.png",
   },
   {
-    title: "Project Gamma",
-    description: "Description of the Project and Company Sponsor",
-    tech: ["Python", "Data Science"],
+    title: "Playtime Planning",
+    description:
+      "Playtime Planning is startup building a platform where parents can easily find local activities for their children that match with their schedule and children's interests. Our students are helping to build the base app and launch to the current waiting list of users.",
+    sponsor: "Playtime Planning",
+    tech: ["React Native", "Full Stack", "Mobile Development"],
     status: "ongoing",
     date: "2025 - Present",
+    image: "/img/projects/playtimeplanning.png",
   },
   {
-    title: "Project Delta",
-    description: "Description of the Project and Company Sponsor",
-    sponsor: "Company C",
-    tech: ["React", "Node.js"],
-    status: "completed",
-    date: "2024 - 2025",
-    link: "#",
-  },
-  {
-    title: "Project Epsilon",
-    description: "Description of the Project and Company Sponsor",
-    tech: ["Python", "TensorFlow"],
-    status: "completed",
-    date: "2024",
-  },
-  {
-    title: "Project Zeta",
-    description: "Description of the Project and Company Sponsor",
-    sponsor: "Company D",
-    tech: ["Vue", "Firebase"],
-    status: "completed",
-    date: "2023 - 2024",
+    title: "AI MNIST Internal Project",
+    description:
+      "This is an AI Club self-paced internal project where use datasets to build a CNN for digit classification. Students submit their models and compare with others in the project.",
+    tech: ["Python", "CNN", "Machine Learning", "Computer Vision"],
+    status: "ongoing",
+    date: "2025 - Present",
   },
 ];
 
 function ProjectCard({ project }: { project: Project }) {
-  return (
-    <div className="group bg-white rounded-2xl overflow-hidden hover:shadow-2xl transition-all duration-300">
-      {/* Image Area */}
-      <div className="w-full h-64 bg-gradient-to-br from-gray-300 to-gray-400 relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-gray-300/50 to-gray-400/50 group-hover:scale-105 transition-transform duration-300"></div>
-        {project.link && (
-          <a
-            href={project.link}
-            className="absolute top-3 right-3 bg-white/90 backdrop-blur-sm p-2 rounded-full text-gray-700 hover:text-gray-900 transition-colors shadow-md"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              strokeWidth={2}
-              stroke="currentColor"
-              className="w-4 h-4"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A2.25 2.25 0 0018 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25"
-              />
-            </svg>
-          </a>
+  const content = (
+    <div className="group border border-[#363636]/40 rounded-lg hover:border-[#363636] transition-colors duration-300 overflow-hidden">
+      <div className="w-full aspect-[16/10] bg-[#282828] relative">
+        {project.image ? (
+          <img
+            src={project.image}
+            alt={project.title}
+            className="w-full h-full object-contain"
+          />
+        ) : (
+          <div className="w-full h-full bg-gradient-to-br from-[#2a2a2a] to-[#333]" />
         )}
       </div>
-
-      {/* Content Area */}
-      <div className="p-8 flex flex-col h-64 justify-center items-center text-center">
-        <p className="text-black text-base font-medium leading-relaxed">
+      <div className="p-5">
+        <div className="flex items-start justify-between gap-4 mb-2">
+          <h3 className="text-white text-sm">{project.title}</h3>
+          <span className="text-[10px] text-gray-600 uppercase tracking-[0.1em] shrink-0">
+            {project.date}
+          </span>
+        </div>
+        <p className="text-gray-500 text-xs leading-relaxed mb-3">
           {project.description}
         </p>
+        <div className="flex flex-wrap gap-1.5">
+          {project.tech.map((t, i) => (
+            <span
+              key={i}
+              className="text-[10px] text-gray-600 uppercase tracking-[0.1em]"
+            >
+              {t}
+              {i < project.tech.length - 1 && " ·"}
+            </span>
+          ))}
+        </div>
       </div>
     </div>
+  );
+
+  return project.link ? (
+    <a href={project.link} target="_blank" rel="noopener noreferrer">
+      {content}
+    </a>
+  ) : (
+    content
   );
 }
 
 export default function Projects() {
+  const [ongoingExpanded, setOngoingExpanded] = useState(false);
+  const [completedExpanded, setCompletedExpanded] = useState(false);
+
   const ongoingProjects = projects.filter((p) => p.status === "ongoing");
   const completedProjects = projects.filter((p) => p.status === "completed");
 
-  return (
-    <div className="min-h-screen pt-24 pb-16 px-4 sm:px-8 md:px-16 lg:px-24">
-      <div className="max-w-7xl mx-auto">
-        {/* Ongoing Projects Section */}
-        <section className="mb-24">
-          <h2 className="text-5xl font-bold text-white text-center mb-12">
-            Ongoing Projects
-          </h2>
+  const displayedOngoing = ongoingExpanded
+    ? ongoingProjects
+    : ongoingProjects.slice(0, 6);
+  const displayedCompleted = completedExpanded
+    ? completedProjects
+    : completedProjects.slice(0, 6);
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
-            {ongoingProjects.map((project, index) => (
-              <ProjectCard key={index} project={project} />
-            ))}
-          </div>
+  const hasMoreOngoing = ongoingProjects.length > 6;
+  const hasMoreCompleted = completedProjects.length > 6;
+
+  return (
+    <div className="min-h-screen pt-36 pb-16 px-4 sm:px-8 md:px-16 lg:px-24">
+      <div className="max-w-7xl mx-auto">
+        <section className="mb-20">
+          <h2 className="text-xs uppercase tracking-[0.15em] text-gray-500 mb-8">
+            Ongoing
+          </h2>
+          {ongoingProjects.length === 0 ? (
+            <div className="text-center py-16">
+              <p className="text-gray-500 text-sm uppercase tracking-[0.15em]">
+                Coming Soon...
+              </p>
+            </div>
+          ) : (
+            <>
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 max-w-6xl mx-auto">
+                {displayedOngoing.map((project, index) => (
+                  <ProjectCard key={index} project={project} />
+                ))}
+              </div>
+              {hasMoreOngoing && (
+                <button
+                  onClick={() => setOngoingExpanded(!ongoingExpanded)}
+                  className="mt-8 text-xs text-gray-500 uppercase tracking-[0.15em] hover:text-gray-400 transition-colors duration-300 mx-auto block"
+                >
+                  {ongoingExpanded
+                    ? "Show Less"
+                    : `Show All (${ongoingProjects.length})`}
+                </button>
+              )}
+            </>
+          )}
         </section>
 
-        {/* Previous Projects Section */}
         <section>
-          <h2 className="text-5xl font-bold text-white text-center mb-12">
-            Previous Projects
+          <h2 className="text-xs uppercase tracking-[0.15em] text-gray-500 mb-8">
+            Previous
           </h2>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
-            {completedProjects.map((project, index) => (
-              <ProjectCard key={index} project={project} />
-            ))}
-          </div>
+          {completedProjects.length === 0 ? (
+            <div className="text-center py-16">
+              <p className="text-gray-500 text-sm uppercase tracking-[0.15em]">
+                Coming Soon...
+              </p>
+            </div>
+          ) : (
+            <>
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 max-w-6xl mx-auto">
+                {displayedCompleted.map((project, index) => (
+                  <ProjectCard key={index} project={project} />
+                ))}
+              </div>
+              {hasMoreCompleted && (
+                <button
+                  onClick={() => setCompletedExpanded(!completedExpanded)}
+                  className="mt-8 text-xs text-gray-500 uppercase tracking-[0.15em] hover:text-gray-400 transition-colors duration-300 mx-auto block"
+                >
+                  {completedExpanded
+                    ? "Show Less"
+                    : `Show All (${completedProjects.length})`}
+                </button>
+              )}
+            </>
+          )}
         </section>
       </div>
     </div>

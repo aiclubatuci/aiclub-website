@@ -78,7 +78,11 @@ const LandingPage = () => {
 
       <div className="absolute inset-x-0 bottom-0 h-48 sm:h-64 md:h-80 opacity-30 pointer-events-none">
         <Image
+<<<<<<< Updated upstream
           src="/img/global/anteater.png"
+=======
+          src="/global/anteater.png"
+>>>>>>> Stashed changes
           alt="Anteater"
           fill
           className="object-contain object-bottom"

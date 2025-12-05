@@ -15,146 +15,42 @@ interface Project {
 
 const projects: Project[] = [
   {
-    title: "Project A",
-    description: "Description of the Project and Company Sponsor",
-    sponsor: "Company A",
-    tech: ["Python", "AI", "Machine Learning"],
+    title: "Sunstone Cities",
+    description:
+      "Sunstone Cities specializes in economic development, infrastructure planning, and public private investment partnerships. Our students are helping to build an automated city economic report system used by real city officials.",
+    sponsor: "Sunstone Cities",
+    tech: ["Economic Development", "Data Analytics", "Automation"],
     status: "ongoing",
     date: "2025 - Present",
-    link: "#",
+    image: "/img/projects/sunstone.png",
   },
   {
-    title: "Project B",
-    description: "Description of the Project and Company Sponsor",
-    sponsor: "Company B",
-    tech: ["JavaScript", "Web Dev"],
+    title: "Sound Ethics",
+    description:
+      "Sound Ethics advocates for the use of ethical AI in the music industry. They are partnered with artists, educational institutions, industry stakeholders, and legal experts. Our students are building a VST plugin that embeds a conversational AI directly into a DAW as well as ML models in audio generation, voice cloning, and stem separation.",
+    sponsor: "Sound Ethics",
+    tech: ["AI", "VST Plugin", "Audio ML", "Music Technology"],
     status: "ongoing",
     date: "2025 - Present",
+    image: "/img/projects/soundethics.png",
   },
   {
-    title: "Project C",
-    description: "Description of the Project and Company Sponsor",
-    tech: ["Python", "Data Science"],
+    title: "Playtime Planning",
+    description:
+      "Playtime Planning is startup building a platform where parents can easily find local activities for their children that match with their schedule and children's interests. Our students are helping to build the base app and launch to the current waiting list of users.",
+    sponsor: "Playtime Planning",
+    tech: ["React Native", "Full Stack", "Mobile Development"],
     status: "ongoing",
     date: "2025 - Present",
+    image: "/img/projects/playtimeplanning.png",
   },
   {
-    title: "Project D",
-    description: "Description of the Project and Company Sponsor",
-    sponsor: "Company C",
-    tech: ["React", "Node.js"],
-    status: "completed",
-    date: "2024 - 2025",
-    link: "#",
-  },
-  {
-    title: "Project E",
-    description: "Description of the Project and Company Sponsor",
-    tech: ["Python", "TensorFlow"],
-    status: "completed",
-    date: "2024",
-  },
-  {
-    title: "Project F",
-    description: "Description of the Project and Company Sponsor",
-    sponsor: "Company D",
-    tech: ["Vue", "Firebase"],
-    status: "completed",
-    date: "2023 - 2024",
-  },
-  {
-    title: "Project G",
-    description: "Description of the Project and Company Sponsor",
-    tech: ["TypeScript", "Next.js"],
+    title: "AI MNIST Internal Project",
+    description:
+      "This is an AI Club self-paced internal project where use datasets to build a CNN for digit classification. Students submit their models and compare with others in the project.",
+    tech: ["Python", "CNN", "Machine Learning", "Computer Vision"],
     status: "ongoing",
     date: "2025 - Present",
-  },
-  {
-    title: "Project H",
-    description: "Description of the Project and Company Sponsor",
-    sponsor: "Company E",
-    tech: ["PyTorch", "Deep Learning"],
-    status: "ongoing",
-    date: "2025 - Present",
-    link: "#",
-  },
-  {
-    title: "Project I",
-    description: "Description of the Project and Company Sponsor",
-    tech: ["Docker", "Kubernetes"],
-    status: "completed",
-    date: "2024",
-  },
-  {
-    title: "Project J",
-    description: "Description of the Project and Company Sponsor",
-    sponsor: "Company F",
-    tech: ["Swift", "iOS"],
-    status: "completed",
-    date: "2023 - 2024",
-    link: "#",
-  },
-  {
-    title: "Project K",
-    description: "Description of the Project and Company Sponsor",
-    tech: ["Rust", "Systems"],
-    status: "ongoing",
-    date: "2025 - Present",
-  },
-  {
-    title: "Project L",
-    description: "Description of the Project and Company Sponsor",
-    sponsor: "Company G",
-    tech: ["Go", "Backend"],
-    status: "ongoing",
-    date: "2025 - Present",
-  },
-  {
-    title: "Project M",
-    description: "Description of the Project and Company Sponsor",
-    tech: ["Flutter", "Mobile"],
-    status: "ongoing",
-    date: "2025 - Present",
-    link: "#",
-  },
-  {
-    title: "Project N",
-    description: "Description of the Project and Company Sponsor",
-    sponsor: "Company H",
-    tech: ["GraphQL", "API"],
-    status: "ongoing",
-    date: "2025 - Present",
-  },
-  {
-    title: "Project O",
-    description: "Description of the Project and Company Sponsor",
-    tech: ["MongoDB", "Database"],
-    status: "completed",
-    date: "2024",
-  },
-  {
-    title: "Project P",
-    description: "Description of the Project and Company Sponsor",
-    sponsor: "Company I",
-    tech: ["AWS", "Cloud"],
-    status: "completed",
-    date: "2023 - 2024",
-    link: "#",
-  },
-  {
-    title: "Project Q",
-    description: "Description of the Project and Company Sponsor",
-    tech: ["Elixir", "Functional"],
-    status: "completed",
-    date: "2024",
-  },
-  {
-    title: "Project R",
-    description: "Description of the Project and Company Sponsor",
-    sponsor: "Company J",
-    tech: ["Angular", "Frontend"],
-    status: "completed",
-    date: "2023 - 2024",
   },
 ];
 
@@ -166,7 +62,7 @@ function ProjectCard({ project }: { project: Project }) {
           <img
             src={project.image}
             alt={project.title}
-            className="w-full h-full object-cover"
+            className="w-full h-full object-contain"
           />
         ) : (
           <div className="w-full h-full bg-gradient-to-br from-[#2a2a2a] to-[#333]" />
@@ -230,20 +126,30 @@ export default function Projects() {
           <h2 className="text-xs uppercase tracking-[0.15em] text-gray-500 mb-8">
             Ongoing
           </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 max-w-6xl mx-auto">
-            {displayedOngoing.map((project, index) => (
-              <ProjectCard key={index} project={project} />
-            ))}
-          </div>
-          {hasMoreOngoing && (
-            <button
-              onClick={() => setOngoingExpanded(!ongoingExpanded)}
-              className="mt-8 text-xs text-gray-500 uppercase tracking-[0.15em] hover:text-gray-400 transition-colors duration-300 mx-auto block"
-            >
-              {ongoingExpanded
-                ? "Show Less"
-                : `Show All (${ongoingProjects.length})`}
-            </button>
+          {ongoingProjects.length === 0 ? (
+            <div className="text-center py-16">
+              <p className="text-gray-500 text-sm uppercase tracking-[0.15em]">
+                Coming Soon...
+              </p>
+            </div>
+          ) : (
+            <>
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 max-w-6xl mx-auto">
+                {displayedOngoing.map((project, index) => (
+                  <ProjectCard key={index} project={project} />
+                ))}
+              </div>
+              {hasMoreOngoing && (
+                <button
+                  onClick={() => setOngoingExpanded(!ongoingExpanded)}
+                  className="mt-8 text-xs text-gray-500 uppercase tracking-[0.15em] hover:text-gray-400 transition-colors duration-300 mx-auto block"
+                >
+                  {ongoingExpanded
+                    ? "Show Less"
+                    : `Show All (${ongoingProjects.length})`}
+                </button>
+              )}
+            </>
           )}
         </section>
 
@@ -251,20 +157,30 @@ export default function Projects() {
           <h2 className="text-xs uppercase tracking-[0.15em] text-gray-500 mb-8">
             Previous
           </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 max-w-6xl mx-auto">
-            {displayedCompleted.map((project, index) => (
-              <ProjectCard key={index} project={project} />
-            ))}
-          </div>
-          {hasMoreCompleted && (
-            <button
-              onClick={() => setCompletedExpanded(!completedExpanded)}
-              className="mt-8 text-xs text-gray-500 uppercase tracking-[0.15em] hover:text-gray-400 transition-colors duration-300 mx-auto block"
-            >
-              {completedExpanded
-                ? "Show Less"
-                : `Show All (${completedProjects.length})`}
-            </button>
+          {completedProjects.length === 0 ? (
+            <div className="text-center py-16">
+              <p className="text-gray-500 text-sm uppercase tracking-[0.15em]">
+                Coming Soon...
+              </p>
+            </div>
+          ) : (
+            <>
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 max-w-6xl mx-auto">
+                {displayedCompleted.map((project, index) => (
+                  <ProjectCard key={index} project={project} />
+                ))}
+              </div>
+              {hasMoreCompleted && (
+                <button
+                  onClick={() => setCompletedExpanded(!completedExpanded)}
+                  className="mt-8 text-xs text-gray-500 uppercase tracking-[0.15em] hover:text-gray-400 transition-colors duration-300 mx-auto block"
+                >
+                  {completedExpanded
+                    ? "Show Less"
+                    : `Show All (${completedProjects.length})`}
+                </button>
+              )}
+            </>
           )}
         </section>
       </div>

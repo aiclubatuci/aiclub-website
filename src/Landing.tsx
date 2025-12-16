@@ -16,7 +16,7 @@ const LandingPage = () => {
         />
 
         <h1
-          className="font-bold leading-tight mx-auto text-center" // max-w-[90%] sm:max-w-[700px] md:max-w-[900px]
+          className="font-bold leading-tight mx-auto text-center"
           style={{
             fontWeight: 700,
             fontStyle: "normal",
@@ -73,8 +73,6 @@ const LandingPage = () => {
       </div>
 
       <div className="h-12 sm:h-16 md:h-24 lg:h-32" />
-
-      {/* <div className="h-12 sm:h-16 lg:h-32" */}
 
       <div className="absolute inset-x-0 bottom-0 h-48 sm:h-64 md:h-80 opacity-30 pointer-events-none">
         <Image src="/img/global/anteater.png" alt="Anteater" fill className="object-contain object-bottom" priority/>

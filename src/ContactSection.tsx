@@ -21,18 +21,18 @@ const ContactSection = () => {
   const [subscribeError, setSubscribeError] = useState("");
 
   const handleSubmit = async (e) => {
-      e.preventDefault();
-      setIsPending(true);
-      setSubscribeSuccess("");
-      setSubscribeError("");
-      const formData = new FormData(e.target);
-      const res = await addSubscriber(formData);
-      if (res.successMessage) {
-          setSubscribeSuccess(res.successMessage);
-      } else if (res.errorMessage) {
-          setSubscribeError(res.errorMessage);
-      }
-      setIsPending(false);
+    e.preventDefault();
+    setIsPending(true);
+    setSubscribeSuccess("");
+    setSubscribeError("");
+    const formData = new FormData(e.target);
+    const res = await addSubscriber(formData);
+    if (res.successMessage) {
+      setSubscribeSuccess(res.successMessage);
+    } else if (res.errorMessage) {
+      setSubscribeError(res.errorMessage);
+    }
+    setIsPending(false);
   };
 
   return (
@@ -40,15 +40,11 @@ const ContactSection = () => {
       id="Contact"
       className="w-full px-4 py-16 lg:px-32 text-center overflow-hidden"
     >
-      <h1
-        className="font-extrabold text-3xl sm:text-4xl lg:text-[40px] mb-6"
-      >
+      <h1 className="font-extrabold text-3xl sm:text-4xl lg:text-[40px] mb-6">
         Questions? Contact Us!
       </h1>
 
-      <h2
-        className="font-bold text-lg sm:text-xl mb-6"
-      >
+      <h2 className="font-bold text-lg sm:text-xl mb-6">
         Don't hesitate to reach out
       </h2>
 
@@ -90,12 +86,12 @@ const ContactSection = () => {
       >
         <form className="flex flex-col gap-4" onSubmit={handleSubmit}>
           <div className="flex flex-col md:flex-row gap-4">
-            <input 
-                type="text"
-                name="firstName"
-                placeholder="First Name"
-                className="w-full rounded-lg bg-gray-100 px-4 py-4 font-semibold text-black placeholder-black"
-                required
+            <input
+              type="text"
+              name="firstName"
+              placeholder="First Name"
+              className="w-full rounded-lg bg-gray-100 px-4 py-4 font-semibold text-black placeholder-black"
+              required
             />
 
             <input
@@ -107,7 +103,7 @@ const ContactSection = () => {
             />
           </div>
 
-          <input 
+          <input
             type="email"
             name="email"
             placeholder="Email Address"
@@ -125,7 +121,11 @@ const ContactSection = () => {
             {subscribeSuccess || subscribeError}
           </p>
 
-          <button type="submit" className="mt-1 w-full rounded-full py-4 bg-linear-to-b from-gray-400 to-white font-bold text-black placeholder-black" disabled={isPending}>
+          <button
+            type="submit"
+            className="mt-1 w-full rounded-full py-4 bg-linear-to-b from-gray-400 to-white font-bold text-black placeholder-black"
+            disabled={isPending}
+          >
             {isPending ? "Processing..." : "Sign Up!"}
           </button>
         </form>

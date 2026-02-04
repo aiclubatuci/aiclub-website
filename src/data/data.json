@@ -210,5 +210,69 @@
       "role": "Workshop Coordinator",
       "linkedin": "https://www.linkedin.com/in/houssin-saadeh/"
     }
+  ],
+  "Events": [
+    {
+      "title": "Neural Networks Workshop",
+      "tag": "Workshop",
+      "dayLabel": "WED",
+      "dateLabel": "DEC 3",
+      "datetimeText": "4:00–5:30 PM",
+      "locationText": "DBH 6011",
+      "flyerSrc": "/img/events/marketing.png",
+      "status": "upcoming"
+    },
+    {
+      "title": "ML Social Night",
+      "tag": "Social",
+      "dayLabel": "FRI",
+      "dateLabel": "JAN 17",
+      "datetimeText": "7:00–9:00 PM",
+      "locationText": "Student Center",
+      "flyerSrc": "/img/events/marketing.png",
+      "status": "upcoming"
+    },
+    {
+      "title": "Neural Networks Workshop",
+      "tag": "Workshop",
+      "dayLabel": "WED",
+      "dateLabel": "DEC 3",
+      "datetimeText": "4:00–5:30 PM",
+      "locationText": "DBH 6011",
+      "flyerSrc": "/img/events/marketing.png",
+      "status": "previous"
+    },
+    {
+      "title": "Neural Networks Workshop",
+      "tag": "Fundraiser",
+      "dayLabel": "WED",
+      "dateLabel": "DEC 3",
+      "datetimeText": "4:00–5:30 PM",
+      "locationText": "DBH 6011",
+      "flyerSrc": "/img/events/fundr.png",
+      "status": "previous"
+    }
+  ],
+  "Socials": [
+    {
+      "href": "https://discord.gg/fKd7mpcq",
+      "icon": "/img/global/discord.svg",
+      "alt": "Discord"
+    },
+    {
+      "href": "https://x.com/aiatucirvine",
+      "icon": "/img/global/twitter.svg",
+      "alt": "Twitter"
+    },
+    {
+      "href": "https://www.linkedin.com/company/aiatuci/",
+      "icon": "/img/global/linkedin.svg",
+      "alt": "LinkedIn"
+    },
+    {
+      "href": "https://www.instagram.com/aiatuci/",
+      "icon": "/img/global/instagram.svg",
+      "alt": "Instagram"
+    }
   ]
 }

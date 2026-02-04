@@ -10,13 +10,14 @@
   },
   "dependencies": {
     "@mailchimp/mailchimp_marketing": "^3.0.80",
-    "next": "15.5.5",
+    "next": "^16.1.6",
     "react": "19.1.0",
     "react-dom": "19.1.0"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",
     "@tailwindcss/postcss": "^4.1.17",
+    "@types/mailchimp__mailchimp_marketing": "^3.0.22",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",

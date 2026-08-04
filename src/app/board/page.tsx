@@ -3,6 +3,11 @@ import type { Member } from "../../components/TeamCard";
 import Image from "next/image";
 import data from "../../data/data.json";
 
+type Committee = {
+  name: string;
+  members: Member[];
+};
+
 export async function generateMetadata() {
   return {
     title: "Meet the Team - AI at UCI",
@@ -11,7 +16,7 @@ export async function generateMetadata() {
 }
 
 export default function Board() {
-  const members: Member[] = data.Team;
+  const committees: Committee[] = data.Team;
 
   return (
     <div className="pb-16 px-4 sm:px-8 md:px-16 lg:px-24">
@@ -39,13 +44,20 @@ export default function Board() {
         </div>
       </section>
 
-      {/* Grid */}
-      <section className="max-w-6xl mx-auto">
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-7 justify-items-center">
-          {members.map((member, index) => (
-            <TeamCard key={index} member={member} />
-          ))}
-        </div>
+      {/* Committees */}
+      <section className="max-w-6xl mx-auto space-y-16">
+        {committees.map((committee) => (
+          <div key={committee.name}>
+            <h2 className="text-2xl font-bold mb-8 text-gray-400 text-center sm:text-left">
+              {committee.name}
+            </h2>
+            <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-7 sm:justify-items-center">
+              {committee.members.map((member, index) => (
+                <TeamCard key={index} member={member} />
+              ))}
+            </div>
+          </div>
+        ))}
       </section>
     </div>
   );

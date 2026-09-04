@@ -98,7 +98,7 @@
         {
           "img": "/img/team/2026-27/Jonathan.jpeg",
           "name": "Jonathan Pan",
-          "role": "Co-Lead",
+          "role": "Projects Lead",
           "linkedin": "https://www.linkedin.com/in/jonathanypan/"
         },
         {
@@ -165,6 +165,7 @@
       "dateLabel": "DEC 3",
       "datetimeText": "4:00–5:30 PM",
       "locationText": "DBH 6011",
+      "description": "Hands-on intro to neural networks — from the basics to building and training your first models.",
       "flyerSrc": "/img/events/marketing.png",
       "status": "upcoming"
     },
@@ -175,7 +176,8 @@
       "dateLabel": "JAN 17",
       "datetimeText": "7:00–9:00 PM",
       "locationText": "Student Center",
-      "flyerSrc": "/img/events/marketing.png",
+      "description": "Unwind with fellow members. Casual hangout for anyone interested in ML and AI — no slides, just people.",
+      "flyerSrc": "",
       "status": "upcoming"
     },
     {
@@ -186,16 +188,6 @@
       "datetimeText": "4:00–5:30 PM",
       "locationText": "DBH 6011",
       "flyerSrc": "/img/events/marketing.png",
-      "status": "previous"
-    },
-    {
-      "title": "Neural Networks Workshop",
-      "tag": "Fundraiser",
-      "dayLabel": "WED",
-      "dateLabel": "DEC 3",
-      "datetimeText": "4:00–5:30 PM",
-      "locationText": "DBH 6011",
-      "flyerSrc": "/img/events/fundr.png",
       "status": "previous"
     }
   ],
@@ -219,6 +211,35 @@
       "href": "https://www.instagram.com/aiatuci/",
       "icon": "/img/global/instagram.svg",
       "alt": "Instagram"
+    }
+  ],
+  "PHOTOS": [
+    {
+      "src": "/img/landing/landingbg.jpg",
+      "alt": "Members collaborating at a workshop table",
+      "rotate": -9,
+      "top": "10%",
+      "left": "0%",
+      "width": "58%",
+      "z": 1
+    },
+    {
+      "src": "/img/events/marketing.png",
+      "alt": "Workshop flyer from an AI at UCI event",
+      "rotate": 8,
+      "top": "22%",
+      "left": "44%",
+      "width": "58%",
+      "z": 2
+    },
+    {
+      "src": "/img/global/board.jpg",
+      "alt": "AI at UCI officer team group photo",
+      "rotate": -2,
+      "top": "0%",
+      "left": "16%",
+      "width": "72%",
+      "z": 3
     }
   ]
 }

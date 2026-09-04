@@ -60,26 +60,30 @@ export default function ContactSection() {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center">
-      <div className="w-full px-4 py-16 lg:px-32 text-center overflow-hidden text-white">
-        <h1 className="font-extrabold uppercase tracking-[0.12em] text-3xl sm:text-4xl lg:text-[40px] mb-6">
-          Questions? Contact Us!
+    <div className="min-h-screen flex items-center justify-center pt-24">
+      <div className="w-full px-4 py-16 lg:px-32 text-center overflow-hidden">
+        <h1 className="font-serif text-[clamp(2.5rem,5.5vw,4rem)] font-normal leading-[1.05] text-white mb-6">
+          Contact Us
         </h1>
 
-        <h2 className="font-medium uppercase tracking-[0.12em] text-xs sm:text-sm text-gray-400 mb-8">
-          Don't hesitate to reach out
+        <h2 className="font-medium uppercase tracking-[0.12em] text-xs sm:text-sm text-white/55 mb-8">
+          Questions? Don't hesitate to reach out!
         </h2>
 
         <a
           href={`mailto:${email}`}
           target="_blank"
           rel="noreferrer"
-          className="mx-auto mb-10 inline-flex w-[240px] h-[52px] items-center justify-center rounded-full border border-white/25 bg-transparent text-gray-200 hover:text-white hover:border-white/40 transition-all duration-300"
+          className="mx-auto mb-8 inline-flex w-[240px] h-[52px] items-center justify-center rounded-full border border-white/25 bg-transparent text-gray-200 hover:text-white hover:border-white/40 transition-all duration-300"
         >
           <span className="font-medium uppercase tracking-[0.12em] text-xs sm:text-sm">
             {email}
           </span>
         </a>
+
+        <h2 className="font-serif text-[clamp(2rem,4.5vw,2.5rem)] font-normal leading-[1.05] text-white mb-8">
+          Newsletter
+        </h2>
 
         <Newsletter
           handleSubmit={handleSubmit}
@@ -88,7 +92,7 @@ export default function ContactSection() {
           subscribeError={subscribeError}
         />
 
-        <h2 className="font-medium uppercase tracking-[0.12em] text-xs sm:text-sm text-gray-400 mb-8">
+        <h2 className="font-medium uppercase tracking-[0.12em] text-xs sm:text-sm text-white/55 mb-8">
           Connect with us on social media
         </h2>
 

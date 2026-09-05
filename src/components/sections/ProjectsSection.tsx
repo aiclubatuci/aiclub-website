@@ -1,8 +1,62 @@
 "use client";
 
+import Link from "next/link";
 import { useState } from "react";
+import { motion } from "framer-motion";
+import type { ReactNode } from "react";
+import data from "@/data/data.json";
 
-interface Project {
+const INFO_CARDS: { title: string; body: ReactNode }[] = [
+  {
+    title: "Applications",
+    body: "Open every quarter. Fall, Winter, and Spring — typically Week 1.",
+  },
+  {
+    title: "Who can apply",
+    body: "All UCI students. Teams form after applications close.",
+  },
+  {
+    title: "How to apply",
+    body: (
+      <>
+        <a
+          href="https://discord.gg/fKd7mpcq"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-white/70 transition-colors duration-150 hover:text-[#4a8fd4]"
+        >
+          Join the Discord
+        </a>
+        .{" "}
+        <Link
+          href="/contact"
+          className="text-white/70 no-underline transition-colors duration-150 hover:text-[#4a8fd4]"
+        >
+          Get notified on the mailing list
+        </Link>
+        .
+      </>
+    ),
+  },
+];
+
+const containerVariants = {
+  hidden: {},
+  visible: {
+    transition: { staggerChildren: 0.06 },
+  },
+};
+
+const itemVariants = {
+  hidden: { opacity: 0, y: 20 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.4, ease: "easeOut" as const },
+  },
+};
+
+type Project = {
   title: string;
   description: string;
   sponsor?: string;
@@ -11,63 +65,23 @@ interface Project {
   date: string;
   image?: string;
   link?: string;
-}
+};
 
-const projects: Project[] = [
-  {
-    title: "Sunstone Cities",
-    description:
-      "Sunstone Cities specializes in economic development, infrastructure planning, and public private investment partnerships. Our students are helping to build an automated city economic report system used by real city officials.",
-    sponsor: "Sunstone Cities",
-    tech: ["Economic Development", "Data Analytics", "Automation"],
-    status: "ongoing",
-    date: "2025 - Present",
-    image: "/img/projects/sunstone.png",
-  },
-  {
-    title: "Sound Ethics",
-    description:
-      "Sound Ethics advocates for the use of ethical AI in the music industry. They are partnered with artists, educational institutions, industry stakeholders, and legal experts. Our students are building a VST plugin that embeds a conversational AI directly into a DAW as well as ML models in audio generation, voice cloning, and stem separation.",
-    sponsor: "Sound Ethics",
-    tech: ["AI", "VST Plugin", "Audio ML", "Music Technology"],
-    status: "ongoing",
-    date: "2025 - Present",
-    image: "/img/projects/soundethics.png",
-  },
-  {
-    title: "Playtime Planning",
-    description:
-      "Playtime Planning is startup building a platform where parents can easily find local activities for their children that match with their schedule and children's interests. Our students are helping to build the base app and launch to the current waiting list of users.",
-    sponsor: "Playtime Planning",
-    tech: ["React Native", "Full Stack", "Mobile Development"],
-    status: "ongoing",
-    date: "2025 - Present",
-    image: "/img/projects/playtimeplanning.png",
-  },
-  {
-    title: "AI MNIST Internal Project",
-    description:
-      "This is an AI Club self-paced internal project where use datasets to build a CNN for digit classification. Students submit their models and compare with others in the project.",
-    tech: ["Python", "CNN", "Machine Learning", "Computer Vision"],
-    status: "ongoing",
-    date: "2025 - Present",
-  },
-];
+const projects = data.Projects as Project[];
 
 function ProjectCard({ project }: { project: Project }) {
   const content = (
     <div className="group border border-[#363636]/40 rounded-lg hover:border-[#363636] transition-colors duration-300 overflow-hidden">
-      <div className="w-full aspect-[16/10] bg-[#282828] relative">
-        {project.image ? (
+      {project.image && (
+        <div className="w-full aspect-[16/10] bg-[#282828] relative">
           <img
             src={project.image}
+            sizes="100vw"
             alt={project.title}
             className="w-full h-full object-contain"
           />
-        ) : (
-          <div className="w-full h-full bg-gradient-to-br from-[#2a2a2a] to-[#333]" />
-        )}
-      </div>
+        </div>
+      )}
       <div className="p-5">
         <div className="flex items-start justify-between gap-4 mb-2">
           <h3 className="text-white text-sm">{project.title}</h3>
@@ -102,6 +116,53 @@ function ProjectCard({ project }: { project: Project }) {
   );
 }
 
+function ProjectsHeader() {
+  return (
+    <section className="flex flex-col items-center justify-center px-4 pt-36 pb-12 text-center sm:px-8 sm:pt-76 md:px-16 lg:px-24">
+      <h1 className="mb-8 font-serif text-[clamp(2.5rem,5.5vw,4rem)] font-normal leading-[1.05] text-white">
+        Projects
+      </h1>
+      <p className="max-w-2xl text-base leading-relaxed text-gray-300 sm:text-lg">
+        Our project teams partner with startups and organizations to build AI
+        that actually ships. Each quarter, students apply to join a team, work
+        alongside other members, and grow a portfolio beyond coursework.
+      </p>
+    </section>
+  );
+}
+
+function ProjectsInfo() {
+  return (
+    <section className="px-[clamp(1.5rem,5vw,4rem)] pb-20">
+      <motion.div
+        className="mx-auto grid max-w-[1000px] grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3"
+        variants={containerVariants}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.15 }}
+      >
+        {INFO_CARDS.map((card, i) => (
+          <motion.div
+            key={card.title}
+            variants={itemVariants}
+            className="h-full rounded-2xl border border-white/[0.08] bg-[#1f1f1f] px-6 py-7"
+          >
+            <div className="mb-2.5 text-xs font-medium tracking-[0.06em] text-[#4a8fd4]">
+              {String(i + 1).padStart(2, "0")}
+            </div>
+            <h3 className="mb-2.5 font-serif text-[22px] leading-[1.15] text-white">
+              {card.title}
+            </h3>
+            <p className="m-0 text-[15px] leading-[1.6] text-white/70">
+              {card.body}
+            </p>
+          </motion.div>
+        ))}
+      </motion.div>
+    </section>
+  );
+}
+
 export default function ProjectsSection() {
   const [ongoingExpanded, setOngoingExpanded] = useState(false);
   const [completedExpanded, setCompletedExpanded] = useState(false);
@@ -120,25 +181,36 @@ export default function ProjectsSection() {
   const hasMoreCompleted = completedProjects.length > 6;
 
   return (
-    <div className="min-h-screen pt-36 pb-16 px-4 sm:px-8 md:px-16 lg:px-24">
-      <div className="max-w-7xl mx-auto">
+    <div className="min-h-screen pb-16">
+      <ProjectsHeader />
+      <ProjectsInfo />
+
+      <div className="mx-auto max-w-7xl px-4 sm:px-8 md:px-16 lg:px-24">
         <section className="mb-20">
-          <h2 className="text-xs uppercase tracking-[0.15em] text-gray-500 mb-8">
+          <h2 className="font-serif text-2xl font-normal leading-[1.05] text-white mb-8">
             Ongoing
           </h2>
           {ongoingProjects.length === 0 ? (
             <div className="text-center py-16">
-              <p className="text-gray-500 text-sm uppercase tracking-[0.15em]">
+              <p className="text-white/55 text-3xl font-normal font-serif leading-[1.05]">
                 Coming Soon...
               </p>
             </div>
           ) : (
             <>
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 max-w-6xl mx-auto">
-                {displayedOngoing.map((project, index) => (
-                  <ProjectCard key={index} project={project} />
+              <motion.div
+                className="mx-auto grid max-w-6xl grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3"
+                variants={containerVariants}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, amount: 0.15 }}
+              >
+                {displayedOngoing.map((project) => (
+                  <motion.div key={project.title} variants={itemVariants}>
+                    <ProjectCard project={project} />
+                  </motion.div>
                 ))}
-              </div>
+              </motion.div>
               {hasMoreOngoing && (
                 <button
                   onClick={() => setOngoingExpanded(!ongoingExpanded)}
@@ -154,22 +226,30 @@ export default function ProjectsSection() {
         </section>
 
         <section>
-          <h2 className="text-xs uppercase tracking-[0.15em] text-gray-500 mb-8">
+          <h2 className="font-serif text-2xl font-normal leading-[1.05] text-white mb-8">
             Previous
           </h2>
           {completedProjects.length === 0 ? (
             <div className="text-center py-16">
-              <p className="text-gray-500 text-sm uppercase tracking-[0.15em]">
+              <p className="text-white/55 text-3xl font-normal font-serif leading-[1.05]">
                 Coming Soon...
               </p>
             </div>
           ) : (
             <>
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 max-w-6xl mx-auto">
-                {displayedCompleted.map((project, index) => (
-                  <ProjectCard key={index} project={project} />
+              <motion.div
+                className="mx-auto grid max-w-6xl grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3"
+                variants={containerVariants}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, amount: 0.15 }}
+              >
+                {displayedCompleted.map((project) => (
+                  <motion.div key={project.title} variants={itemVariants}>
+                    <ProjectCard project={project} />
+                  </motion.div>
                 ))}
-              </div>
+              </motion.div>
               {hasMoreCompleted && (
                 <button
                   onClick={() => setCompletedExpanded(!completedExpanded)}

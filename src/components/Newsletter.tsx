@@ -19,7 +19,7 @@ export function Newsletter({
             type="text"
             name="firstName"
             placeholder="First Name"
-            className="w-full bg-transparent border-b border-[#363636] focus:border-white outline-none px-1 py-3 text-sm text-white placeholder:text-gray-500 transition-all duration-300"
+            className="w-full bg-transparent border-b border-[#363636] focus:border-white outline-none px-1 py-3 text-sm text-white placeholder:text-white/55 transition-all duration-300"
             required
           />
 
@@ -27,7 +27,7 @@ export function Newsletter({
             type="text"
             name="lastName"
             placeholder="Last Name"
-            className="w-full bg-transparent border-b border-[#363636] focus:border-white outline-none px-1 py-3 text-sm text-white placeholder:text-gray-500 transition-all duration-300"
+            className="w-full bg-transparent border-b border-[#363636] focus:border-white outline-none px-1 py-3 text-sm text-white placeholder:text-white/55 transition-all duration-300"
             required
           />
         </div>
@@ -36,7 +36,7 @@ export function Newsletter({
           type="email"
           name="email"
           placeholder="Email Address"
-          className="w-full bg-transparent border-b border-[#363636] focus:border-white outline-none px-1 py-3 text-sm text-white placeholder:text-gray-500 transition-all duration-300"
+          className="w-full bg-transparent border-b border-[#363636] focus:border-white outline-none px-1 py-3 text-sm text-white placeholder:text-white/55 transition-all duration-300"
           required
         />
 
@@ -55,7 +55,7 @@ export function Newsletter({
         <button
           type="submit"
           disabled={isPending}
-          className="mt-2 mx-auto w-full sm:w-auto border border-white/90 rounded-sm px-10 py-3 text-xs text-white uppercase tracking-[0.15em] hover:bg-white hover:text-[#282828] transition-all duration-300 font-light disabled:opacity-50 disabled:hover:bg-transparent disabled:hover:text-white disabled:cursor-not-allowed"
+          className="mt-2 mx-auto w-full sm:w-auto border border-white/90 rounded-sm px-10 py-3 text-xs text-white uppercase tracking-[0.15em] hover:bg-white hover:text-[#282828] transition-all duration-300 font-light disabled:opacity-50 disabled:hover:bg-transparent disabled:hover:text-white disabled:cursor-not-allowed cursor-pointer"
         >
           {isPending ? "Processing..." : "Sign Up!"}
         </button>

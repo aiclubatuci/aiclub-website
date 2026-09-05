@@ -101,3 +101,23 @@ function Pillar({ pillar }: { pillar: PillarData }) {
     </motion.article>
   );
 }
+
+function PillarHeading() {
+  const ref = useRef<HTMLHeadingElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ["start 0.95", "start 0.65"],
+  });
+  const opacity = useTransform(scrollYProgress, [0, 1], [0, 1]);
+  const y = useTransform(scrollYProgress, [0, 1], [28, 0]);
+
+  return (
+    <motion.h2
+      ref={ref}
+      className="mb-2 text-center font-serif text-[clamp(2.5rem,5.5vw,4rem)] font-normal leading-[1.05] text-white"
+      style={{ opacity, y }}
+    >
+      What We Provide
+    </motion.h2>
+  );
+}

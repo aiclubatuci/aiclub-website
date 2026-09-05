@@ -121,3 +121,15 @@ function PillarHeading() {
     </motion.h2>
   );
 }
+
+export default function PillarBlock() {
+  return (
+    <section className="bg-[#171717] px-[clamp(1.5rem,5vw,4rem)] pb-16 pt-6">
+      <PillarHeading />
+
+      {PILLARS.map((pillar) => (
+        <Pillar key={pillar.id} pillar={pillar} />
+      ))}
+    </section>
+  );
+}

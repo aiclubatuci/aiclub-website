@@ -1,8 +1,9 @@
 "use client";
 
 import { useState } from "react";
+import data from "@/data/data.json";
 
-interface Project {
+type Project = {
   title: string;
   description: string;
   sponsor?: string;
@@ -11,63 +12,23 @@ interface Project {
   date: string;
   image?: string;
   link?: string;
-}
+};
 
-const projects: Project[] = [
-  {
-    title: "Sunstone Cities",
-    description:
-      "Sunstone Cities specializes in economic development, infrastructure planning, and public private investment partnerships. Our students are helping to build an automated city economic report system used by real city officials.",
-    sponsor: "Sunstone Cities",
-    tech: ["Economic Development", "Data Analytics", "Automation"],
-    status: "ongoing",
-    date: "2025 - Present",
-    image: "/img/projects/sunstone.png",
-  },
-  {
-    title: "Sound Ethics",
-    description:
-      "Sound Ethics advocates for the use of ethical AI in the music industry. They are partnered with artists, educational institutions, industry stakeholders, and legal experts. Our students are building a VST plugin that embeds a conversational AI directly into a DAW as well as ML models in audio generation, voice cloning, and stem separation.",
-    sponsor: "Sound Ethics",
-    tech: ["AI", "VST Plugin", "Audio ML", "Music Technology"],
-    status: "ongoing",
-    date: "2025 - Present",
-    image: "/img/projects/soundethics.png",
-  },
-  {
-    title: "Playtime Planning",
-    description:
-      "Playtime Planning is startup building a platform where parents can easily find local activities for their children that match with their schedule and children's interests. Our students are helping to build the base app and launch to the current waiting list of users.",
-    sponsor: "Playtime Planning",
-    tech: ["React Native", "Full Stack", "Mobile Development"],
-    status: "ongoing",
-    date: "2025 - Present",
-    image: "/img/projects/playtimeplanning.png",
-  },
-  {
-    title: "AI MNIST Internal Project",
-    description:
-      "This is an AI Club self-paced internal project where use datasets to build a CNN for digit classification. Students submit their models and compare with others in the project.",
-    tech: ["Python", "CNN", "Machine Learning", "Computer Vision"],
-    status: "ongoing",
-    date: "2025 - Present",
-  },
-];
+const projects = data.Projects as Project[];
 
 function ProjectCard({ project }: { project: Project }) {
   const content = (
     <div className="group border border-[#363636]/40 rounded-lg hover:border-[#363636] transition-colors duration-300 overflow-hidden">
-      <div className="w-full aspect-[16/10] bg-[#282828] relative">
-        {project.image ? (
+      {project.image && (
+        <div className="w-full aspect-[16/10] bg-[#282828] relative">
           <img
             src={project.image}
+            sizes="100vw"
             alt={project.title}
             className="w-full h-full object-contain"
           />
-        ) : (
-          <div className="w-full h-full bg-gradient-to-br from-[#2a2a2a] to-[#333]" />
-        )}
-      </div>
+        </div>
+      )}
       <div className="p-5">
         <div className="flex items-start justify-between gap-4 mb-2">
           <h3 className="text-white text-sm">{project.title}</h3>

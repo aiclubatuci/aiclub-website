@@ -1,5 +1,6 @@
 import InvolvementBlock from "@/components/InvolvementBlock";
 import PillarBlock from "@/components/PillarBlock";
+import BoardSection from "@/components/sections/BoardSection";
 
 function MissionHeader() {
   return (
@@ -22,6 +23,7 @@ export default function AboutSection() {
       <MissionHeader />
       <InvolvementBlock />
       <PillarBlock />
+      <BoardSection />
     </div>
   );
 }

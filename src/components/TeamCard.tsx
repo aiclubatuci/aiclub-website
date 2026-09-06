@@ -19,8 +19,9 @@ export default function TeamCard({ member }: { member: Member }) {
       <div className="flex-[8] relative">
         <Image
           src={member.img}
-          alt="Image"
+          alt={member.name}
           fill
+          sizes="(max-width: 640px) 100vw, (max-width: 768px) 256px, 384px"
           className="object-cover rounded-b-lg"
         />
 
@@ -39,7 +40,9 @@ export default function TeamCard({ member }: { member: Member }) {
 
       {/* Name & Role */}
       <div className="flex flex-col flex-[2] items-center justify-center text-white px-1">
-        <h1 className="text-sm sm:text-lg font-bold text-center leading-tight">{member.name}</h1>
+        <h1 className="text-sm sm:text-lg font-bold text-center leading-tight">
+          {member.name}
+        </h1>
         <p className="text-xs sm:text-sm">{member.role}</p>
       </div>
     </a>

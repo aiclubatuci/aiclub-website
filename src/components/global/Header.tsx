@@ -22,7 +22,6 @@ export default function Header() {
 
   const links = [
     { name: "About", path: "/about" },
-    { name: "Board", path: "/board" },
     { name: "Events", path: "/events" },
     { name: "Projects", path: "/projects" },
     { name: "Contact", path: "/contact" },
@@ -194,11 +193,7 @@ export default function Header() {
           <div className="flex flex-col justify-center gap-1.5 w-6 h-5">
             <motion.span
               className="block h-0.5 w-full bg-white rounded-full origin-center"
-              animate={
-                isMenuOpen
-                  ? { y: 8, rotate: 45 }
-                  : { y: 0, rotate: 0 }
-              }
+              animate={isMenuOpen ? { y: 8, rotate: 45 } : { y: 0, rotate: 0 }}
               transition={{ duration: 0.3 }}
             />
             <motion.span
@@ -213,9 +208,7 @@ export default function Header() {
             <motion.span
               className="block h-0.5 w-full bg-white rounded-full origin-center"
               animate={
-                isMenuOpen
-                  ? { y: -8, rotate: -45 }
-                  : { y: 0, rotate: 0 }
+                isMenuOpen ? { y: -8, rotate: -45 } : { y: 0, rotate: 0 }
               }
               transition={{ duration: 0.3 }}
             />

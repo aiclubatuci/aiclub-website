@@ -1,6 +1,22 @@
-import EventCard from "@/components/EventCard";
 import type { Event } from "@/components/EventCard";
+import UpcomingEvents from "@/components/UpcomingEvents";
+import PreviousEvents from "@/components/PreviousEvents";
 import data from "@/data/data.json";
+
+function EventsHeader() {
+  return (
+    <section className="flex flex-col items-center justify-center px-4 pt-36 pb-12 text-center sm:px-8 sm:pt-72 md:px-16 lg:px-24">
+      <h1 className="mb-8 font-serif text-[clamp(2.5rem,5.5vw,4rem)] font-normal leading-[1.05] text-white">
+        Events
+      </h1>
+      <p className="max-w-2xl text-base leading-relaxed text-gray-300 sm:text-lg">
+        We host events with a wide range of topics about each week during the
+        academic quarter, including machine learning, AI techniques, interactive
+        advice from industry speakers, social events, and more.
+      </p>
+    </section>
+  );
+}
 
 export default function EventsSection() {
   const events: Event[] = data.Events;
@@ -8,45 +24,11 @@ export default function EventsSection() {
   const previousEvents = events.filter((e) => e.status === "previous");
 
   return (
-    <div className="min-h-screen pt-36 pb-16 px-4 sm:px-8 md:px-16 lg:px-24">
-      <div className="max-w-6xl mx-auto">
-        {/* Upcoming */}
-        <section className="mb-20">
-          <h1 className="text-2xl font-bold uppercase tracking-[0.15em] text-gray-500 mb-8">
-            Upcoming Events
-          </h1>
-          {upcomingEvents.length === 0 ? (
-            <div className="text-center py-16">
-              <p className="text-gray-500 text-sm">
-                No upcoming events right now...
-              </p>
-            </div>
-          ) : (
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mx-auto">
-              {upcomingEvents.map((event, index) => (
-                <EventCard key={index} event={event} />
-              ))}
-            </div>
-          )}
-        </section>
-
-        {/* Previous */}
-        <section>
-          <h1 className="text-2xl font-bold uppercase tracking-[0.15em] text-gray-500 mb-8">
-            Previous Events
-          </h1>
-          {previousEvents.length === 0 ? (
-            <div className="text-center py-16">
-              <p className="text-gray-500 text-sm">Coming soon...</p>
-            </div>
-          ) : (
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mx-auto">
-              {previousEvents.map((event, index) => (
-                <EventCard key={index} event={event} />
-              ))}
-            </div>
-          )}
-        </section>
+    <div className="min-h-screen pb-16">
+      <EventsHeader />
+      <div className="mx-auto max-w-6xl px-4 sm:px-8 md:px-16 lg:px-24">
+        <UpcomingEvents events={upcomingEvents} />
+        <PreviousEvents events={previousEvents} />
       </div>
     </div>
   );

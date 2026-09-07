@@ -138,7 +138,7 @@ function FanPhoto({
         src={src}
         alt={alt}
         fill
-        sizes="(max-width: 768px) 70vw, 320px"
+        sizes="(max-width: 1023px) 45vw, 320px"
         className="object-cover"
       />
     </motion.div>
@@ -154,13 +154,13 @@ function PhotoStack() {
   const y = useTransform(scrollYProgress, [0, 1], [24, -24]);
 
   return (
-    <div className="w-full max-w-[500px] overflow-visible md:ml-auto">
+    <div className="mx-auto w-full max-w-[500px] overflow-visible lg:ml-auto lg:mr-0">
       <motion.div
         ref={ref}
-        className="relative aspect-[4/3] w-full overflow-visible md:aspect-square md:min-h-[400px]"
+        className="relative aspect-[4/3] w-full overflow-visible lg:aspect-square lg:min-h-[400px]"
         style={{ y }}
       >
-        <div className="relative aspect-[4/3] w-full md:aspect-square md:origin-top-right md:scale-110">
+        <div className="relative aspect-[4/3] w-full lg:aspect-square lg:origin-top-right lg:scale-110">
           {PHOTOS.map((photo, index) => (
             <FanPhoto
               key={photo.src}
@@ -184,9 +184,9 @@ function PhotoStack() {
 
 export default function IntroBlock() {
   return (
-    <section className="overflow-x-clip bg-[#171717] px-[clamp(1.5rem,5vw,4rem)] pb-24 pt-8 md:pt-4">
+    <section className="overflow-x-clip bg-[#171717] px-[clamp(1.5rem,5vw,4rem)] pb-24 pt-8 lg:pt-4">
       <motion.div
-        className="mx-auto grid max-w-[1200px] grid-cols-1 items-start gap-12 md:grid-cols-[minmax(0,1fr)_minmax(280px,520px)] md:gap-14"
+        className="mx-auto grid max-w-[1200px] grid-cols-1 items-start gap-12 lg:grid-cols-[minmax(0,1fr)_minmax(280px,520px)] lg:gap-14"
         variants={containerVariants}
         initial="hidden"
         whileInView="visible"
@@ -203,7 +203,7 @@ export default function IntroBlock() {
 
           <motion.p
             variants={itemVariants}
-            className="mt-6 max-w-[540px] text-base leading-[1.6] text-white/70 [overflow-wrap:anywhere] md:text-[17px]"
+            className="mt-6 max-w-[540px] text-base leading-[1.6] text-white/70 [overflow-wrap:anywhere] lg:text-[17px]"
           >
             <HighlightedText text={BODY} highlights={HIGHLIGHTS} />
           </motion.p>

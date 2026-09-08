@@ -174,30 +174,31 @@ export function Hero({ className = "" }: { className?: string }) {
 
       drawNetwork(netAlpha);
 
-      const isMobile = W <= 768;
+      const isCompact = W < 1024;
+      const isPhone = W <= 768;
 
-      const fontSize = isMobile
+      const fontSize = isCompact
         ? Math.min(60, W * 0.13)
         : Math.min(84, W * 0.065);
       const lineH = fontSize * 0.88;
       const blockH = lineH * 3;
-      const logoOX = isMobile ? 0 : parallax.x * 0.011,
-        logoOY = isMobile ? 0 : parallax.y * 0.011;
-      const headOX = isMobile ? 0 : parallax.x * 0.006,
-        headOY = isMobile ? 0 : parallax.y * 0.006;
-      const subOX = isMobile ? 0 : parallax.x * 0.003,
-        subOY = isMobile ? 0 : parallax.y * 0.003;
+      const logoOX = isCompact ? 0 : parallax.x * 0.011,
+        logoOY = isCompact ? 0 : parallax.y * 0.011;
+      const headOX = isCompact ? 0 : parallax.x * 0.006,
+        headOY = isCompact ? 0 : parallax.y * 0.006;
+      const subOX = isCompact ? 0 : parallax.x * 0.003,
+        subOY = isCompact ? 0 : parallax.y * 0.003;
 
       if (headAlpha > 0) {
         ctx.save();
         ctx.globalAlpha = headAlpha;
-        const textX = isMobile ? W / 2 + headOX : W * 0.19 + headOX;
-        const textY = isMobile
+        const textX = isCompact ? W / 2 + headOX : W * 0.19 + headOX;
+        const textY = isCompact
           ? H * 0.17 + headOY
           : (H - blockH) / 2 - H * 0.05 + headOY;
         ctx.font = `400 ${fontSize}px Redaction50, Georgia, serif`;
         ctx.fillStyle = "#ffffff";
-        ctx.textAlign = isMobile ? "center" : "left";
+        ctx.textAlign = isCompact ? "center" : "left";
         ctx.textBaseline = "top";
         ctx.letterSpacing = `${(fontSize * 0.03).toFixed(1)}px`;
         ctx.fillText("Artificial", textX, textY);
@@ -211,10 +212,10 @@ export function Hero({ className = "" }: { className?: string }) {
         ctx.save();
         // Source art is a faint light anteater; boost so it reads as the hero mark.
         ctx.globalAlpha = Math.min(1, logoAlpha * 3.2);
-        const scaleH = isMobile ? H * 0.28 : H * 0.6;
+        const scaleH = isPhone ? H * 0.28 : isCompact ? H * 0.4 : H * 0.6;
         const scaleW = scaleH * (logoImg.width / logoImg.height);
-        const cx = isMobile ? W / 2 + logoOX : W * 0.68 + logoOX;
-        const cy = isMobile ? H * 0.68 + logoOY : H * 0.5 + logoOY;
+        const cx = isCompact ? W / 2 + logoOX : W * 0.68 + logoOX;
+        const cy = isCompact ? H * 0.68 + logoOY : H * 0.5 + logoOY;
         ctx.drawImage(
           logoImg,
           cx - scaleW / 2,
@@ -230,10 +231,10 @@ export function Hero({ className = "" }: { className?: string }) {
         ctx.save();
         ctx.globalAlpha = subAlpha;
         lastSubAlpha = subAlpha;
-        const subFontSize = fontSize * (isMobile ? 0.32 : 0.28);
+        const subFontSize = fontSize * (isCompact ? 0.32 : 0.28);
         const subLineH = subFontSize * 1.55;
-        const subBaseX = isMobile ? W * 0.5 + subOX : W * 0.19 + subOX;
-        const subY = isMobile
+        const subBaseX = isCompact ? W * 0.5 + subOX : W * 0.19 + subOX;
+        const subY = isCompact
           ? H * 0.17 + blockH + lineH * 0.55 + subOY
           : (H - blockH) / 2 -
             H * 0.05 +
@@ -241,7 +242,7 @@ export function Hero({ className = "" }: { className?: string }) {
             lineH * 0.75 +
             H * 0.05 +
             subOY;
-        const maxSubW = isMobile
+        const maxSubW = isCompact
           ? Math.min(W * 0.86, 400)
           : Math.min(W * 0.42, 560);
         ctx.font = `400 ${subFontSize}px 'Space Grotesk', Arial, sans-serif`;
@@ -254,7 +255,7 @@ export function Hero({ className = "" }: { className?: string }) {
           ],
         ];
 
-        if (isMobile) {
+        if (isCompact) {
           type Token = { text: string; isBlue: boolean };
           const tokens: Token[] = [];
           for (const [runText, isBlue] of runs) {

@@ -28,6 +28,9 @@
     "tailwindcss": "^4",
     "typescript": "^5"
   },
+  "overrides": {
+    "unrs-resolver": ">=1.12.2"
+  },
   "description": "This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).",
   "main": "index.js",
   "keywords": [],

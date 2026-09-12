@@ -16,11 +16,43 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "AI at UCI",
+  metadataBase: new URL("https://aiclub.ics.uci.edu"),
+
+  title: {
+    default: "AI at UCI",
+    template: `%s | AI at UCI`,
+  },
+
   description:
-    "AI at UCI is a student-run organization at the University of California, Irvine that aims to promote the use of AI in the campus community.",
-  icons: {
-    icon: "/img/global/ailogo.png",
+    "AI at UCI is UC Irvine's student-run artificial intelligence club. Join workshops, projects, and a community of builders and researchers exploring AI on campus.",
+
+  openGraph: {
+    type: "website",
+    locale: "en_US",
+    url: "https://aiclub.ics.uci.edu",
+    siteName: "AI at UCI",
+    title: "AI at UCI",
+    description:
+      "AI at UCI is UC Irvine's student-run artificial intelligence club. Join workshops, projects, and a community of builders and researchers exploring AI on campus.",
+    images: [
+      {
+        url: "/img/og-image.jpg",
+        width: 1200,
+        height: 630,
+        alt: "AI at UCI",
+      },
+    ],
+  },
+
+  twitter: {
+    card: "summary_large_image",
+    title: "AI at UCI",
+    description:
+      "AI at UCI is UC Irvine's student-run artificial intelligence club. Join workshops, projects, and a community of builders and researchers exploring AI on campus.",
+  },
+
+  alternates: {
+    canonical: "./",
   },
 };
 

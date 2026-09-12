@@ -6,7 +6,7 @@ export default function Footer() {
   const navigationLinks: { name: string; path: string }[] = [
     { name: "Home", path: "/" },
     { name: "About", path: "/about" },
-    { name: "Team", path: "/board" },
+    { name: "Team", path: "/about#team" },
     { name: "Events", path: "/events" },
     { name: "Projects", path: "/projects" },
     { name: "Contact", path: "/contact" },

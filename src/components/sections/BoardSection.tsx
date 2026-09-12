@@ -30,7 +30,7 @@ const itemVariants = {
 
 function BoardHeader() {
   return (
-    <section className="mx-auto max-w-6xl pb-16 pt-8 text-center">
+    <section id="team" className="mx-auto max-w-6xl scroll-mt-28 pb-16 pt-8 text-center">
       <h2 className="mb-8 font-serif text-[clamp(2.5rem,5.5vw,4rem)] font-normal leading-[1.05] text-white">
         Meet the Team
       </h2>

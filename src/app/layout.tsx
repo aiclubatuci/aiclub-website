@@ -36,9 +36,7 @@ export const metadata: Metadata = {
       "AI at UCI is UC Irvine's student-run artificial intelligence club. Join workshops, projects, and a community of builders and researchers exploring AI on campus.",
     images: [
       {
-        url: "/img/og-image.jpg",
-        width: 1200,
-        height: 630,
+        url: "/og-image.jpg",
         alt: "AI at UCI",
       },
     ],

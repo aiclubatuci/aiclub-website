@@ -165,36 +165,15 @@
   ],
   "Events": [
     {
-      "title": "Neural Networks Workshop",
-      "tag": "Workshop",
-      "dayLabel": "WED",
-      "dateLabel": "DEC 3",
-      "datetimeText": "4:00–5:30 PM",
-      "locationText": "DBH 6011",
-      "description": "Hands-on intro to neural networks — from the basics to building and training your first models.",
-      "flyerSrc": "/img/events/marketing.png",
-      "status": "upcoming"
-    },
-    {
-      "title": "ML Social Night",
-      "tag": "Social",
-      "dayLabel": "FRI",
-      "dateLabel": "JAN 17",
-      "datetimeText": "7:00–9:00 PM",
-      "locationText": "Student Center",
-      "description": "Unwind with fellow members. Casual hangout for anyone interested in ML and AI — no slides, just people.",
+      "title": "Anteater Involvement Fair",
+      "tag": "Event",
+      "dayLabel": "TUE",
+      "dateLabel": "SEP 22",
+      "datetimeText": "11:00 AM–4:00 PM",
+      "locationText": "Aldrich Park",
+      "description": "Come join us at the Anteater Involvement Fair to learn more about AI at UCI and get involved with our club!",
       "flyerSrc": "",
       "status": "upcoming"
-    },
-    {
-      "title": "Neural Networks Workshop",
-      "tag": "Workshop",
-      "dayLabel": "WED",
-      "dateLabel": "DEC 3",
-      "datetimeText": "4:00–5:30 PM",
-      "locationText": "DBH 6011",
-      "flyerSrc": "/img/events/marketing.png",
-      "status": "previous"
     }
   ],
   "Socials": [

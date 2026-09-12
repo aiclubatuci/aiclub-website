@@ -19,6 +19,7 @@ export function Newsletter({
             type="text"
             name="firstName"
             placeholder="First Name"
+            aria-label="First Name"
             className="w-full bg-transparent border-b border-[#363636] focus:border-white outline-none px-1 py-3 text-sm text-white placeholder:text-white/55 transition-all duration-300"
             required
           />
@@ -27,6 +28,7 @@ export function Newsletter({
             type="text"
             name="lastName"
             placeholder="Last Name"
+            aria-label="Last Name"
             className="w-full bg-transparent border-b border-[#363636] focus:border-white outline-none px-1 py-3 text-sm text-white placeholder:text-white/55 transition-all duration-300"
             required
           />
@@ -36,6 +38,7 @@ export function Newsletter({
           type="email"
           name="email"
           placeholder="Email Address"
+          aria-label="Email Address"
           className="w-full bg-transparent border-b border-[#363636] focus:border-white outline-none px-1 py-3 text-sm text-white placeholder:text-white/55 transition-all duration-300"
           required
         />

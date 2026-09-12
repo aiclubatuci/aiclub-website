@@ -40,9 +40,9 @@ export default function TeamCard({ member }: { member: Member }) {
 
       {/* Name & Role */}
       <div className="flex flex-col flex-[2] items-center justify-center text-white px-1">
-        <h1 className="text-sm sm:text-lg font-bold text-center leading-tight">
+        <h3 className="text-sm sm:text-lg font-bold text-center leading-tight">
           {member.name}
-        </h1>
+        </h3>
         <p className="text-xs sm:text-sm">{member.role}</p>
       </div>
     </a>

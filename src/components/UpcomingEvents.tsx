@@ -94,13 +94,7 @@ export default function UpcomingEvents({ events }: { events: Event[] }) {
             })}
           </div>
 
-          <div
-            className={`relative px-8 py-8 sm:px-9 ${
-              events.some((event) => event.flyerSrc)
-                ? "lg:min-h-[calc(4rem+(280px*4/3))]"
-                : ""
-            }`}
-          >
+          <div className="relative px-8 py-8 sm:px-9 lg:min-h-[calc(4rem+(280px*4/3))]">
             <AnimatePresence mode="wait">
               <motion.div
                 key={`${current.title}-${current.dateLabel}`}

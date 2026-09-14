@@ -201,7 +201,7 @@
   "PHOTOS": [
     {
       "src": "/img/landing/meeting.png",
-      "alt": "Members collaborating at a workshop table",
+      "alt": "Members listening to a speaker",
       "rotate": -9,
       "top": "10%",
       "left": "0%",
@@ -210,7 +210,7 @@
     },
     {
       "src": "/img/landing/faces.jpg",
-      "alt": "Workshop flyer from an AI at UCI event",
+      "alt": "Members engaging in the first meeting",
       "rotate": 8,
       "top": "22%",
       "left": "44%",

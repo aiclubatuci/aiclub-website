@@ -16,7 +16,7 @@ type PillarData = {
 const PILLARS: PillarData[] = [
   {
     id: "community",
-    href: "/events",
+    href: "/contact",
     title: "Community",
     photo: {
       src: "/img/pillars/aif.jpg",
@@ -26,10 +26,10 @@ const PILLARS: PillarData[] = [
   },
   {
     id: "learning",
-    href: "/img/pillars/workshop.jpg",
+    href: "/events",
     title: "Learning",
     photo: {
-      src: "/learning.jpg",
+      src: "/img/pillars/workshop.jpg",
       alt: "Workshop leader presenting to the audience",
     },
     body: "Learn more about the tools, machine learning, and AI technologies used in industry through our live workshops and events. We host weekly workshops on the latest AI tools, talks from industry experts, and much more. Come learn and build with us!",

@@ -19,17 +19,17 @@ const PILLARS: PillarData[] = [
     href: "/events",
     title: "Community",
     photo: {
-      src: "/img/landing/landingbg.jpg",
+      src: "/img/pillars/aif.jpg",
       alt: "AI at UCI community gathering",
     },
     body: "Get involved in the AI at UCI community and meet other students who are passionate about AI. We provide a space for students to network, learn, build, and grow together via our events and socials.",
   },
   {
     id: "learning",
-    href: "/events",
+    href: "/img/pillars/workshop.jpg",
     title: "Learning",
     photo: {
-      src: "/img/global/board.jpg",
+      src: "/learning.jpg",
       alt: "Members collaborating at an AI at UCI gathering",
     },
     body: "Learn more about the tools, machine learning, and AI technologies used in industry through our live workshops and events. We host weekly workshops on the latest AI tools, talks from industry experts, and much more. Come learn and build with us!",
@@ -39,7 +39,7 @@ const PILLARS: PillarData[] = [
     href: "/projects",
     title: "Projects",
     photo: {
-      src: "/img/projects/sunstone.png",
+      src: "/img/pillars/cloudhacks.jpg",
       alt: "Students shipping a real-world AI project",
     },
     body: "Participate in real-world AI projects and expand your portfolio. We work on projects that are actually used in the industry, and you'll get to work on them with other students and industry experts. Along the way, you'll learn about the latest AI technologies and best practices.",

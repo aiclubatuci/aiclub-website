@@ -35,7 +35,7 @@ export default function InvolvementBlock() {
             Get involved
           </p>
           <a
-            href="https://discord.gg/fKd7mpcq"
+            href="https://discord.com/invite/a24QHw2xZz"
             target="_blank"
             rel="noopener noreferrer"
             className="mt-3 inline-block text-lg text-white transition-colors duration-150 hover:text-[#4a8fd4]"

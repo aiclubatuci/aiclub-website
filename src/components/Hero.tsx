@@ -61,7 +61,7 @@ export function Hero({ className = "" }: { className?: string }) {
     logoImg.onload = () => {
       logoReady = true;
     };
-    logoImg.src = "/img/global/hero-logo.png";
+    logoImg.src = "/img/landing/hero-logo.png";
 
     const mouse = { x: -9999, y: -9999 };
     const parallax = { x: 0, y: 0 };

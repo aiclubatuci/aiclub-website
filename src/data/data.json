@@ -200,7 +200,7 @@
   ],
   "PHOTOS": [
     {
-      "src": "/img/landing/landingbg.jpg",
+      "src": "/img/landing/meeting.png",
       "alt": "Members collaborating at a workshop table",
       "rotate": -9,
       "top": "10%",
@@ -209,7 +209,7 @@
       "z": 1
     },
     {
-      "src": "/img/events/marketing.png",
+      "src": "/img/landing/faces.jpg",
       "alt": "Workshop flyer from an AI at UCI event",
       "rotate": 8,
       "top": "22%",
@@ -218,7 +218,7 @@
       "z": 2
     },
     {
-      "src": "/img/global/board.jpg",
+      "src": "/img/landing/board.jpg",
       "alt": "AI at UCI officer team group photo",
       "rotate": -2,
       "top": "0%",

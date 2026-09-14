@@ -20,7 +20,7 @@ const INFO_CARDS: { title: string; body: ReactNode }[] = [
     body: (
       <>
         <a
-          href="https://discord.gg/fKd7mpcq"
+          href="https://discord.com/invite/a24QHw2xZz"
           target="_blank"
           rel="noopener noreferrer"
           className="text-white/70 transition-colors duration-150 hover:text-[#4a8fd4]"

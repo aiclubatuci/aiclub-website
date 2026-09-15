@@ -71,7 +71,8 @@
           "img": "/img/team/2026-27/Varun.jpeg",
           "name": "Varun Bhupathi",
           "role": "Chair",
-          "linkedin": "https://www.linkedin.com/in/varun-bhupathi/"
+          "linkedin": "https://www.linkedin.com/in/varun-bhupathi/",
+          "objectPosition": "50% 0%"
         },
         {
           "img": "/img/team/2026-27/Injila.jpeg",
@@ -111,7 +112,8 @@
           "img": "/img/team/2026-27/Adam.jpeg",
           "name": "Adam Le",
           "role": "Chair",
-          "linkedin": "https://www.linkedin.com/in/adam-v-le"
+          "linkedin": "https://www.linkedin.com/in/adam-v-le",
+          "objectPosition": "50% 15%"
         },
         {
           "img": "/img/team/2026-27/Cole.jpeg",
@@ -158,7 +160,8 @@
           "img": "/img/team/2026-27/Yizhe.jpg",
           "name": "Yizhe Lan",
           "role": "Coordinator",
-          "linkedin": "https://www.linkedin.com/in/yizhe-lan-james-1552b9377/"
+          "linkedin": "https://www.linkedin.com/in/yizhe-lan-james-1552b9377/",
+          "objectPosition": "50% 0%"
         }
       ]
     }

@@ -5,6 +5,8 @@ export interface Member {
   name: string;
   role: string;
   linkedin: string;
+  /** CSS object-position when object-cover crops (e.g. "center top") */
+  objectPosition?: string;
 }
 
 export default function TeamCard({ member }: { member: Member }) {
@@ -23,6 +25,11 @@ export default function TeamCard({ member }: { member: Member }) {
           fill
           sizes="(max-width: 640px) 100vw, (max-width: 768px) 256px, 384px"
           className="object-cover rounded-b-lg"
+          style={
+            member.objectPosition
+              ? { objectPosition: member.objectPosition }
+              : undefined
+          }
         />
 
         {/* Linkedin Logo */}

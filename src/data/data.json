@@ -177,6 +177,28 @@
       "description": "Come join us at the Anteater Involvement Fair to learn more about AI at UCI and get involved with our club!",
       "flyerSrc": "",
       "status": "upcoming"
+    },
+    {
+      "title": "ICS Bonfire",
+      "tag": "Social",
+      "dayLabel": "FRI",
+      "dateLabel": "SEP 26",
+      "datetimeText": "5:00 PM–8:00 PM",
+      "locationText": "Corona Del Mar Beach",
+      "description": "Come join us at the ICS Bonfire to relax and socialize with other ICS students!",
+      "flyerSrc": "",
+      "status": "upcoming"
+    },
+    {
+      "title": "First Meeting",
+      "tag": "Meeting",
+      "dayLabel": "MON",
+      "dateLabel": "SEP 28",
+      "datetimeText": "4:00 PM–5:00 PM",
+      "locationText": "DBH 6011",
+      "description": "Come join us at the first meeting to learn more about us, our events, and how you can get involved!",
+      "flyerSrc": "",
+      "status": "upcoming"
     }
   ],
   "Socials": [

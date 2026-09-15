@@ -40,8 +40,8 @@ export default function Footer() {
             <div className="flex flex-col gap-2.5 pt-2 border-t border-[#363636]/30">
               <div className="text-xs text-gray-400 leading-relaxed">
                 <p className="font-medium text-gray-300 mb-1">Location</p>
-                <p>DBH 6011, UC Irvine</p>
-                <p>Wednesdays 4:00-5:30 PM</p>
+                <p>DBH 4011, UC Irvine</p>
+                <p>Tuesdays 6:30-8:00 PM</p>
               </div>
             </div>
             <div className="flex flex-col gap-3 mt-auto pt-4 border-t border-[#363636]/30">

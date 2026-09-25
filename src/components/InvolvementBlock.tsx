@@ -3,8 +3,8 @@ import Link from "next/link";
 const ITEMS = [
   {
     label: "Weekly meetings",
-    primary: "Wed 4:00–5:30 PM",
-    secondary: "DBH 6011, UC Irvine",
+    primary: "Tue 6:30–8:00 PM",
+    secondary: "DBH 4011, UC Irvine",
   },
   {
     label: "Open to everyone",

@@ -5,7 +5,7 @@ import Image from "next/image";
 import { AnimatePresence, motion } from "framer-motion";
 import type { Event } from "@/components/EventCard";
 
-const MEETING_INFO_SHORT = "TUE 6:30–8:00 PM · DBH 4011";
+const MEETING_INFO_SHORT = "MON 4:00–6:00 PM · DBH 6011 / 4011";
 
 const containerVariants = {
   hidden: {},

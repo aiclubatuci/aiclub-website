@@ -208,7 +208,18 @@
       "datetimeText": "4-5 PM / 5-6 PM",
       "locationText": "DBH 6011 / 4011",
       "description": "Come learn about setting up GitHub and VS Code, and get an overview of this year’s projects!",
-      "flyerSrc": "/img/events/workshops/workshop1.jpeg",
+      "flyerSrc": "",
+      "status": "previous"
+    },
+    {
+      "title": "Intro to Machine Learning & Basic Classifiers",
+      "tag": "Workshop",
+      "dayLabel": "MON",
+      "dateLabel": "OCT 12",
+      "datetimeText": "4-5 PM / 5-6 PM",
+      "locationText": "DBH 6011 / 4011",
+      "description": "Come learn about machine learning and basic classifiers!",
+      "flyerSrc": "/img/events/workshops/workshop2.jpeg",
       "status": "upcoming"
     }
   ],

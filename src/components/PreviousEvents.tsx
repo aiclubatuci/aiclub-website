@@ -46,6 +46,7 @@ export default function PreviousEvents({ events }: { events: Event[] }) {
             <motion.div
               key={`${event.title}-${event.dateLabel}-${index}`}
               variants={itemVariants}
+              className="h-full"
             >
               <EventCard event={event} />
             </motion.div>

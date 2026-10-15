@@ -287,39 +287,37 @@
   ],
   "Projects": [
     {
-      "title": "Sunstone Cities",
-      "description": "Sunstone Cities specializes in economic development, infrastructure planning, and public private investment partnerships. Our students are helping to build an automated city economic report system used by real city officials.",
+      "title": "Sunstone Project",
+      "description": "Partnering with Sunstone to develop a reusable AI-powered workflow that transforms large collections of documents into concise, one-page executive summaries. Using prompt and context engineering, the project focuses on producing accurate, consistent reports while streamlining document analysis for non-technical users.",
       "sponsor": "Sunstone Cities",
-      "tech": ["Economic Development", "Data Analytics", "Automation"],
+      "tech": [
+        "LLMs",
+        "Prompt Engineering",
+        "Context Engineering",
+        "Workflow Automation"
+      ],
       "status": "ongoing",
-      "date": "2025 - Present",
-      "image": "/img/projects/sunstone.png"
+      "date": "2026 - Present",
+      "image": "/img/projects/sunstone.png",
+      "link": "https://docs.google.com/forms/d/e/1FAIpQLScAz1A83rRPbL_YyUfdkmNsNsmpc_sYH_IOOu_SgvVizCPwcQ/viewform?usp=dialog",
+      "applicationsOpen": true
     },
     {
-      "title": "Sound Ethics",
-      "description": "Sound Ethics advocates for the use of ethical AI in the music industry. They are partnered with artists, educational institutions, industry stakeholders, and legal experts. Our students are building a VST plugin that embeds a conversational AI directly into a DAW as well as ML models in audio generation, voice cloning, and stem separation.",
-      "sponsor": "Sound Ethics",
-      "tech": ["AI", "VST Plugin", "Audio ML", "Music Technology"],
+      "title": "Ensure Agency Project",
+      "description": "Developing an iOS-based home scanning solution that uses computer vision and machine learning to capture accurate property measurements and estimate home reconstruction costs. The project aims to help California homeowners avoid underinsurance by replacing outdated public-record estimates with real-world property data.",
+      "sponsor": "Ensure Agency",
+      "tech": [
+        "iOS Development",
+        "Computer Vision",
+        "Machine Learning",
+        "Python",
+        "TypeScript"
+      ],
       "status": "ongoing",
-      "date": "2025 - Present",
-      "image": "/img/projects/soundethics.png"
-    },
-    {
-      "title": "Playtime Planning",
-      "description": "Playtime Planning is startup building a platform where parents can easily find local activities for their children that match with their schedule and children's interests. Our students are helping to build the base app and launch to the current waiting list of users.",
-      "sponsor": "Playtime Planning",
-      "tech": ["React Native", "Full Stack", "Mobile Development"],
-      "status": "ongoing",
-      "date": "2025 - Present",
-      "image": "/img/projects/playtimeplanning.png"
-    },
-    {
-      "title": "AI MNIST Internal Project",
-      "description": "This is an AI Club self-paced internal project where use datasets to build a CNN for digit classification. Students submit their models and compare with others in the project.",
-      "tech": ["Python", "CNN", "Machine Learning", "Computer Vision"],
-      "status": "ongoing",
-      "date": "2025 - Present",
-      "image": ""
+      "date": "2026 - Present",
+      "image": "/img/projects/ensure.png",
+      "link": "https://docs.google.com/forms/d/e/1FAIpQLSe2NoDzu9Pue77tgQY9cj3okFmVZh5g2nh6zagS1ZBTB8rCdg/viewform?usp=dialog",
+      "applicationsOpen": true
     }
   ]
 }

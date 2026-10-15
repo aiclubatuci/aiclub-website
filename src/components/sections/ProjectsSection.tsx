@@ -6,10 +6,33 @@ import { motion } from "framer-motion";
 import type { ReactNode } from "react";
 import data from "@/data/data.json";
 
+type Project = {
+  title: string;
+  description: string;
+  sponsor?: string;
+  tech: string[];
+  status: "ongoing" | "completed";
+  date: string;
+  image?: string;
+  link?: string;
+  applicationsOpen?: boolean;
+};
+
+const projects = data.Projects as Project[];
+
+const hasOpenApplications = projects.some(
+  (project) =>
+    project.status === "ongoing" &&
+    project.applicationsOpen &&
+    project.link?.trim(),
+);
+
 const INFO_CARDS: { title: string; body: ReactNode }[] = [
   {
     title: "Applications",
-    body: "Open every quarter. Fall, Winter, and Spring — typically Week 1.",
+    body: hasOpenApplications
+      ? "Applications are currently open! Explore our available projects below."
+      : "Open every quarter. Fall, Winter, and Spring — typically Week 1.",
   },
   {
     title: "Who can apply",
@@ -17,7 +40,18 @@ const INFO_CARDS: { title: string; body: ReactNode }[] = [
   },
   {
     title: "How to apply",
-    body: (
+    body: hasOpenApplications ? (
+      <>
+        Applications are open!{" "}
+        <a
+          href="#ongoing-projects"
+          className="text-[#4a8fd4] transition-colors duration-150 hover:text-[#70a9e3]"
+        >
+          Apply directly through the project cards below
+        </a>
+        .
+      </>
+    ) : (
       <>
         <a
           href="https://discord.com/invite/a24QHw2xZz"
@@ -56,63 +90,63 @@ const itemVariants = {
   },
 };
 
-type Project = {
-  title: string;
-  description: string;
-  sponsor?: string;
-  tech: string[];
-  status: "ongoing" | "completed";
-  date: string;
-  image?: string;
-  link?: string;
-};
-
-const projects = data.Projects as Project[];
-
 function ProjectCard({ project }: { project: Project }) {
-  const content = (
-    <div className="group border border-[#363636]/40 rounded-lg hover:border-[#363636] transition-colors duration-300 overflow-hidden">
+  const href = project.link?.trim();
+  const showApply = Boolean(
+    href && project.status === "ongoing" && project.applicationsOpen,
+  );
+
+  return (
+    <div className="group flex h-full flex-col overflow-hidden rounded-lg border border-[#363636]/40 transition-colors duration-300 hover:border-[#363636]">
       {project.image && (
-        <div className="w-full aspect-[16/10] bg-[#282828] relative">
+        <div className="relative aspect-[16/10] w-full bg-[#282828]">
           <img
             src={project.image}
             sizes="100vw"
             alt={project.title}
-            className="w-full h-full object-contain"
+            className="h-full w-full object-contain"
           />
         </div>
       )}
-      <div className="p-5">
-        <div className="flex items-start justify-between gap-4 mb-2">
-          <h3 className="text-white text-sm">{project.title}</h3>
-          <span className="text-[10px] text-gray-600 uppercase tracking-[0.1em] shrink-0">
+
+      <div className="flex flex-1 flex-col p-5">
+        <div className="mb-2 flex items-start justify-between gap-4">
+          <h3 className="text-sm text-white">{project.title}</h3>
+          <span className="shrink-0 text-[10px] uppercase tracking-[0.1em] text-gray-600">
             {project.date}
           </span>
         </div>
-        <p className="text-gray-500 text-xs leading-relaxed mb-3">
+
+        <p className="mb-3 text-xs leading-relaxed text-gray-500">
           {project.description}
         </p>
-        <div className="flex flex-wrap gap-1.5">
-          {project.tech.map((t, i) => (
-            <span
-              key={i}
-              className="text-[10px] text-gray-600 uppercase tracking-[0.1em]"
+
+        <div className="mt-auto flex flex-wrap items-end justify-between gap-3">
+          <div className="flex flex-wrap gap-1.5">
+            {project.tech.map((t, i) => (
+              <span
+                key={i}
+                className="text-[10px] uppercase tracking-[0.1em] text-gray-600"
+              >
+                {t}
+                {i < project.tech.length - 1 && " ·"}
+              </span>
+            ))}
+          </div>
+
+          {showApply && (
+            <a
+              href={href}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="shrink-0 rounded border border-[#4a8fd4]/45 px-2.5 py-1 text-[10px] uppercase tracking-[0.12em] text-[#4a8fd4] transition-colors duration-200 hover:border-[#4a8fd4]/80 hover:bg-[#4a8fd4]/10"
             >
-              {t}
-              {i < project.tech.length - 1 && " ·"}
-            </span>
-          ))}
+              Apply
+            </a>
+          )}
         </div>
       </div>
     </div>
-  );
-
-  return project.link ? (
-    <a href={project.link} target="_blank" rel="noopener noreferrer">
-      {content}
-    </a>
-  ) : (
-    content
   );
 }
 
@@ -122,6 +156,7 @@ function ProjectsHeader() {
       <h1 className="mb-8 font-serif text-[clamp(2.5rem,5.5vw,4rem)] font-normal leading-[1.05] text-white">
         Projects
       </h1>
+
       <p className="max-w-2xl text-base leading-relaxed text-gray-300 sm:text-lg">
         Our project teams partner with startups and organizations to build AI
         that actually ships. Each quarter, students apply to join a team, work
@@ -150,9 +185,11 @@ function ProjectsInfo() {
             <div className="mb-2.5 text-xs font-medium tracking-[0.06em] text-[#4a8fd4]">
               {String(i + 1).padStart(2, "0")}
             </div>
+
             <h3 className="mb-2.5 font-serif text-[22px] leading-[1.15] text-white">
               {card.title}
             </h3>
+
             <p className="m-0 text-[15px] leading-[1.6] text-white/70">
               {card.body}
             </p>
@@ -168,11 +205,13 @@ export default function ProjectsSection() {
   const [completedExpanded, setCompletedExpanded] = useState(false);
 
   const ongoingProjects = projects.filter((p) => p.status === "ongoing");
+
   const completedProjects = projects.filter((p) => p.status === "completed");
 
   const displayedOngoing = ongoingExpanded
     ? ongoingProjects
     : ongoingProjects.slice(0, 6);
+
   const displayedCompleted = completedExpanded
     ? completedProjects
     : completedProjects.slice(0, 6);
@@ -186,13 +225,14 @@ export default function ProjectsSection() {
       <ProjectsInfo />
 
       <div className="mx-auto max-w-7xl px-4 sm:px-8 md:px-16 lg:px-24">
-        <section className="mb-20">
-          <h2 className="font-serif text-2xl font-normal leading-[1.05] text-white mb-8">
+        <section id="ongoing-projects" className="mb-20 scroll-mt-24">
+          <h2 className="mb-8 font-serif text-2xl font-normal leading-[1.05] text-white">
             Ongoing
           </h2>
+
           {ongoingProjects.length === 0 ? (
-            <div className="text-center py-16">
-              <p className="text-white/55 text-3xl font-normal font-serif leading-[1.05]">
+            <div className="py-16 text-center">
+              <p className="font-serif text-3xl font-normal leading-[1.05] text-white/55">
                 Coming Soon...
               </p>
             </div>
@@ -211,10 +251,11 @@ export default function ProjectsSection() {
                   </motion.div>
                 ))}
               </motion.div>
+
               {hasMoreOngoing && (
                 <button
                   onClick={() => setOngoingExpanded(!ongoingExpanded)}
-                  className="mt-8 text-xs text-gray-500 uppercase tracking-[0.15em] hover:text-gray-400 transition-colors duration-300 mx-auto block"
+                  className="mx-auto mt-8 block text-xs uppercase tracking-[0.15em] text-gray-500 transition-colors duration-300 hover:text-gray-400"
                 >
                   {ongoingExpanded
                     ? "Show Less"
@@ -226,12 +267,13 @@ export default function ProjectsSection() {
         </section>
 
         <section>
-          <h2 className="font-serif text-2xl font-normal leading-[1.05] text-white mb-8">
+          <h2 className="mb-8 font-serif text-2xl font-normal leading-[1.05] text-white">
             Previous
           </h2>
+
           {completedProjects.length === 0 ? (
-            <div className="text-center py-16">
-              <p className="text-white/55 text-3xl font-normal font-serif leading-[1.05]">
+            <div className="py-16 text-center">
+              <p className="font-serif text-3xl font-normal leading-[1.05] text-white/55">
                 Coming Soon...
               </p>
             </div>
@@ -250,10 +292,11 @@ export default function ProjectsSection() {
                   </motion.div>
                 ))}
               </motion.div>
+
               {hasMoreCompleted && (
                 <button
                   onClick={() => setCompletedExpanded(!completedExpanded)}
-                  className="mt-8 text-xs text-gray-500 uppercase tracking-[0.15em] hover:text-gray-400 transition-colors duration-300 mx-auto block"
+                  className="mx-auto mt-8 block text-xs uppercase tracking-[0.15em] text-gray-500 transition-colors duration-300 hover:text-gray-400"
                 >
                   {completedExpanded
                     ? "Show Less"

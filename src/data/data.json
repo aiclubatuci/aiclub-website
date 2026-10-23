@@ -307,11 +307,10 @@
         "Context Engineering",
         "Workflow Automation"
       ],
-      "status": "ongoing",
+      "status": "closed",
       "date": "2026 - Present",
       "image": "/img/projects/sunstone.png",
-      "link": "https://docs.google.com/forms/d/e/1FAIpQLScAz1A83rRPbL_YyUfdkmNsNsmpc_sYH_IOOu_SgvVizCPwcQ/viewform?usp=dialog",
-      "applicationsOpen": true
+      "link": "https://docs.google.com/forms/d/e/1FAIpQLScAz1A83rRPbL_YyUfdkmNsNsmpc_sYH_IOOu_SgvVizCPwcQ/viewform?usp=dialog"
     },
     {
       "title": "Ensure Agency Project",
@@ -324,11 +323,10 @@
         "Python",
         "TypeScript"
       ],
-      "status": "ongoing",
+      "status": "closed",
       "date": "2026 - Present",
       "image": "/img/projects/ensure.png",
-      "link": "https://docs.google.com/forms/d/e/1FAIpQLSe2NoDzu9Pue77tgQY9cj3okFmVZh5g2nh6zagS1ZBTB8rCdg/viewform?usp=dialog",
-      "applicationsOpen": true
+      "link": "https://docs.google.com/forms/d/e/1FAIpQLSe2NoDzu9Pue77tgQY9cj3okFmVZh5g2nh6zagS1ZBTB8rCdg/viewform?usp=dialog"
     }
   ]
 }

@@ -11,20 +11,16 @@ type Project = {
   description: string;
   sponsor?: string;
   tech: string[];
-  status: "ongoing" | "completed";
+  status: "open" | "closed" | "completed";
   date: string;
   image?: string;
   link?: string;
-  applicationsOpen?: boolean;
 };
 
 const projects = data.Projects as Project[];
 
 const hasOpenApplications = projects.some(
-  (project) =>
-    project.status === "ongoing" &&
-    project.applicationsOpen &&
-    project.link?.trim(),
+  (project) => project.status === "open" && project.link?.trim(),
 );
 
 const INFO_CARDS: { title: string; body: ReactNode }[] = [
@@ -92,9 +88,7 @@ const itemVariants = {
 
 function ProjectCard({ project }: { project: Project }) {
   const href = project.link?.trim();
-  const showApply = Boolean(
-    href && project.status === "ongoing" && project.applicationsOpen,
-  );
+  const showApply = Boolean(href && project.status === "open");
 
   return (
     <div className="group flex h-full flex-col overflow-hidden rounded-lg border border-[#363636]/40 transition-colors duration-300 hover:border-[#363636]">
@@ -143,6 +137,12 @@ function ProjectCard({ project }: { project: Project }) {
             >
               Apply
             </a>
+          )}
+
+          {project.status === "closed" && (
+            <span className="shrink-0 text-[10px] uppercase tracking-[0.12em] text-gray-600">
+              Apps closed
+            </span>
           )}
         </div>
       </div>
@@ -204,7 +204,9 @@ export default function ProjectsSection() {
   const [ongoingExpanded, setOngoingExpanded] = useState(false);
   const [completedExpanded, setCompletedExpanded] = useState(false);
 
-  const ongoingProjects = projects.filter((p) => p.status === "ongoing");
+  const ongoingProjects = projects.filter(
+    (p) => p.status === "open" || p.status === "closed",
+  );
 
   const completedProjects = projects.filter((p) => p.status === "completed");
 

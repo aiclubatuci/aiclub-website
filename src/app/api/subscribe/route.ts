@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
 import mailchimp from "@mailchimp/mailchimp_marketing";
+import type { SubscribeRequest } from "@/types";
 
 function mustGetEnv(name: string): string {
   const value = process.env[name];
@@ -13,12 +14,6 @@ mailchimp.setConfig({
   apiKey: mustGetEnv("MAIL_CHIMP_API_KEY"),
   server: mustGetEnv("MAIL_CHIMP_SERVER_PREFIX"),
 });
-
-type SubscribeRequest = {
-  email?: string;
-  firstName?: string;
-  lastName?: string;
-};
 
 export async function POST(req: Request) {
   try {

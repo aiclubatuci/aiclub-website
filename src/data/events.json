@@ -86,5 +86,16 @@
     "description": "Come join us for a night of board games and jeopardy!",
     "flyerSrc": "/img/events/socials/social1.jpeg",
     "status": "upcoming"
+  },
+  {
+    "title": "Crowdstrike Speaker Panel",
+    "tag": "Speaker",
+    "dayLabel": "TUE",
+    "dateLabel": "NOV 03",
+    "datetimeText": "6:30-8:00 PM",
+    "locationText": "DBH 4011",
+    "description": "Come join us for a speaker event and hear from three Crowdstrike professionals!",
+    "flyerSrc": "/img/events/speakers/speaker1.jpeg",
+    "status": "upcoming"
   }
 ]

@@ -1,4 +1,7 @@
-import AboutSection from "@/components/sections/AboutSection";
+import Mission from "@/components/about/Mission";
+import Involvement from "@/components/about/Involvement";
+import Pillars from "@/components/about/Pillars";
+import Board from "@/components/about/Board";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -8,5 +11,12 @@ export const metadata: Metadata = {
 };
 
 export default function About() {
-  return <AboutSection />;
+  return (
+    <div className="min-h-screen pb-16">
+      <Mission />
+      <Involvement />
+      <Pillars />
+      <Board />
+    </div>
+  );
 }

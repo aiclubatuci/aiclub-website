@@ -1,16 +1,50 @@
-type NewsletterProps = {
-  handleSubmit: (e: React.FormEvent<HTMLFormElement>) => void;
-  isPending: boolean;
-  subscribeSuccess: string;
-  subscribeError: string;
-};
+"use client";
 
-export function Newsletter({
-  handleSubmit,
-  isPending,
-  subscribeSuccess,
-  subscribeError,
-}: NewsletterProps) {
+import { useState } from "react";
+import type { FormEvent } from "react";
+import type { SubscribeRequest, SubscribeResponse } from "@/types";
+
+export default function NewsletterForm() {
+  const [isPending, setIsPending] = useState(false);
+  const [subscribeSuccess, setSubscribeSuccess] = useState("");
+  const [subscribeError, setSubscribeError] = useState("");
+
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setIsPending(true);
+    setSubscribeSuccess("");
+    setSubscribeError("");
+
+    const formData = new FormData(e.currentTarget);
+
+    const requestBody: SubscribeRequest = {
+      firstName: String(formData.get("firstName") ?? ""),
+      lastName: String(formData.get("lastName") ?? ""),
+      email: String(formData.get("email") ?? ""),
+    };
+
+    try {
+      const res: Response = await fetch("/api/subscribe", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(requestBody),
+      });
+
+      const responseBody: SubscribeResponse = await res.json();
+
+      if (res.ok && responseBody.successMessage) {
+        setSubscribeSuccess(responseBody.successMessage);
+        e.currentTarget.reset();
+      } else {
+        setSubscribeError(responseBody.errorMessage ?? "Something went wrong.");
+      }
+    } catch {
+      setSubscribeError("Network error. Please try again.");
+    } finally {
+      setIsPending(false);
+    }
+  };
+
   return (
     <div className="mx-auto mb-10 w-full max-w-xl rounded-xl bg-transparent border border-white/10 p-6 sm:p-8">
       <form className="flex flex-col gap-5" onSubmit={handleSubmit}>

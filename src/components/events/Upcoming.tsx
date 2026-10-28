@@ -3,7 +3,7 @@
 import { useState } from "react";
 import Image from "next/image";
 import { AnimatePresence, motion } from "framer-motion";
-import type { Event } from "@/components/EventCard";
+import type { Event } from "@/types";
 
 const MEETING_INFO_SHORT = "MON 4:00–6:00 PM · DBH 6011 / 4011";
 
@@ -23,7 +23,7 @@ const itemVariants = {
   },
 };
 
-export default function UpcomingEvents({ events }: { events: Event[] }) {
+export default function Upcoming({ events }: { events: Event[] }) {
   const [selected, setSelected] = useState(0);
   const current = events[selected];
 

@@ -1,16 +1,7 @@
-import socialsData from "../data/socials.json";
+import socialsData from "@/data/socials.json";
+import type { Social } from "@/types";
 
-type Email = {
-  email: string;
-};
-
-export type Social = {
-  href: string;
-  icon: string;
-  alt: string;
-};
-
-export function SocialLinks({ email }: Email) {
+export function SocialLinks({ email }: { email: string }) {
   const socials: Social[] = socialsData;
   return (
     <div className="flex flex-wrap justify-center gap-8">

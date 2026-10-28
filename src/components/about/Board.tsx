@@ -1,14 +1,9 @@
 "use client";
 
-import TeamCard from "@/components/TeamCard";
-import type { Member } from "@/components/TeamCard";
+import TeamCard from "@/components/about/TeamCard";
 import team from "@/data/team.json";
+import type { Committee } from "@/types";
 import { motion } from "framer-motion";
-
-type Committee = {
-  name: string;
-  members: Member[];
-};
 
 const containerVariants = {
   hidden: {},
@@ -73,7 +68,7 @@ function BoardGrid({ committees }: { committees: Committee[] }) {
   );
 }
 
-export default function BoardSection() {
+export default function Board() {
   const committees: Committee[] = team;
   return (
     <div className="px-4 pb-16 sm:px-8 md:px-16 lg:px-24">

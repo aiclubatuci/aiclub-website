@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { SocialLinks } from "@/components/SocialLinks";
+import { SocialLinks } from "@/components/layout/SocialLinks";
 
 export default function Footer() {
   const navigationLinks: { name: string; path: string }[] = [

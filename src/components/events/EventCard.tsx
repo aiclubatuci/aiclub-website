@@ -1,16 +1,5 @@
 import Image from "next/image";
-
-export type Event = {
-  title: string;
-  tag: string;
-  dayLabel?: string;
-  dateLabel: string;
-  datetimeText: string;
-  locationText: string;
-  flyerSrc?: string;
-  description?: string;
-  status: string;
-};
+import type { Event } from "@/types";
 
 export default function EventCard({ event }: { event: Event }) {
   return (

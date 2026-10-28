@@ -241,7 +241,18 @@
       "datetimeText": "4-5 PM / 5-6 PM",
       "locationText": "DBH 6011 / 4011",
       "description": "Continue learning about model selection and linear regression!",
-      "flyerSrc": "/img/events/workshops/workshop4.jpeg",
+      "flyerSrc": "",
+      "status": "previous"
+    },
+    {
+      "title": "Board Games and Jeopardy Night",
+      "tag": "Social",
+      "dayLabel": "MON",
+      "dateLabel": "NOV 02",
+      "datetimeText": "4-5 PM",
+      "locationText": "DBH 6011",
+      "description": "Come join us for a night of board games and jeopardy!",
+      "flyerSrc": "/img/events/socials/social1.jpeg",
       "status": "upcoming"
     }
   ],

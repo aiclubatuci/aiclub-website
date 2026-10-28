@@ -1,13 +1,5 @@
 import Image from "next/image";
-
-export interface Member {
-  img: string;
-  name: string;
-  role: string;
-  linkedin: string;
-  /** CSS object-position when object-cover crops (e.g. "center top") */
-  objectPosition?: string;
-}
+import type { Member } from "@/types";
 
 export default function TeamCard({ member }: { member: Member }) {
   return (

@@ -4,16 +4,9 @@ import { useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { motion, useScroll, useTransform } from "framer-motion";
+import type { Pillar } from "@/types";
 
-type PillarData = {
-  id: string;
-  href: string;
-  title: string;
-  body: string;
-  photo: { src: string; alt: string };
-};
-
-const PILLARS: PillarData[] = [
+const PILLARS: Pillar[] = [
   {
     id: "community",
     href: "/contact",
@@ -46,7 +39,7 @@ const PILLARS: PillarData[] = [
   },
 ];
 
-function Pillar({ pillar }: { pillar: PillarData }) {
+function PillarCard({ pillar }: { pillar: Pillar }) {
   const ref = useRef<HTMLElement>(null);
 
   const { scrollYProgress } = useScroll({
@@ -122,13 +115,13 @@ function PillarHeading() {
   );
 }
 
-export default function PillarBlock() {
+export default function Pillars() {
   return (
     <section className="bg-[#171717] px-[clamp(1.5rem,5vw,4rem)] pb-16 pt-6">
       <PillarHeading />
 
       {PILLARS.map((pillar) => (
-        <Pillar key={pillar.id} pillar={pillar} />
+        <PillarCard key={pillar.id} pillar={pillar} />
       ))}
     </section>
   );

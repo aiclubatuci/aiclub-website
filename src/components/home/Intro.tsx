@@ -11,8 +11,9 @@ import {
   useTransform,
 } from "framer-motion";
 import photos from "@/data/photos.json";
+import type { Photo } from "@/types";
 
-const PHOTOS = photos;
+const PHOTOS = photos as Photo[];
 
 const HIGHLIGHTS = ["artificial intelligence", "builders", "hands-on", "grows"];
 
@@ -182,7 +183,7 @@ function PhotoStack() {
   );
 }
 
-export default function IntroBlock() {
+export default function Intro() {
   return (
     <section className="overflow-x-clip bg-[#171717] px-[clamp(1.5rem,5vw,4rem)] pb-24 pt-8 lg:pt-4">
       <motion.div

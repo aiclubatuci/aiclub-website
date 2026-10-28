@@ -1,8 +1,8 @@
 "use client";
 
 import { motion } from "framer-motion";
-import EventCard from "@/components/EventCard";
-import type { Event } from "@/components/EventCard";
+import EventCard from "@/components/events/EventCard";
+import type { Event } from "@/types";
 
 const containerVariants = {
   hidden: {},
@@ -20,7 +20,7 @@ const itemVariants = {
   },
 };
 
-export default function PreviousEvents({ events }: { events: Event[] }) {
+export default function Previous({ events }: { events: Event[] }) {
   return (
     <motion.section
       variants={containerVariants}

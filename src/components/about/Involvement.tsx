@@ -13,7 +13,7 @@ const ITEMS = [
   },
 ] as const;
 
-export default function InvolvementBlock() {
+export default function Involvement() {
   return (
     <section className="px-[clamp(1.5rem,5vw,4rem)] pb-16">
       <div className="mx-auto grid max-w-[1200px] grid-cols-1 divide-y divide-white/10 border-y border-white/10 md:grid-cols-3 md:divide-x md:divide-y-0">

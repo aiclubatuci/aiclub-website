@@ -1,0 +1,90 @@
+[
+  {
+    "title": "Anteater Involvement Fair",
+    "tag": "Event",
+    "dayLabel": "TUE",
+    "dateLabel": "SEP 22",
+    "datetimeText": "11:00 AM–4:00 PM",
+    "locationText": "Aldrich Park",
+    "description": "Come join us at the Anteater Involvement Fair to learn more about AI at UCI and get involved with our club!",
+    "flyerSrc": "",
+    "status": "previous"
+  },
+  {
+    "title": "ICS Bonfire",
+    "tag": "Social",
+    "dayLabel": "FRI",
+    "dateLabel": "SEP 26",
+    "datetimeText": "5:00 PM–8:00 PM",
+    "locationText": "Corona Del Mar Beach",
+    "description": "Come join us at the ICS Bonfire to relax and socialize with other ICS students!",
+    "flyerSrc": "",
+    "status": "previous"
+  },
+  {
+    "title": "First Meeting",
+    "tag": "Meeting",
+    "dayLabel": "MON",
+    "dateLabel": "SEP 28",
+    "datetimeText": "4:00 PM–5:00 PM",
+    "locationText": "DBH 6011",
+    "description": "Come join us at the first meeting to learn more about us, our events, and how you can get involved!",
+    "flyerSrc": "",
+    "status": "previous"
+  },
+  {
+    "title": "GitHub, VS Code, and Projects Overview",
+    "tag": "Workshop",
+    "dayLabel": "MON",
+    "dateLabel": "OCT 05",
+    "datetimeText": "4-5 PM / 5-6 PM",
+    "locationText": "DBH 6011 / 4011",
+    "description": "Come learn about setting up GitHub and VS Code, and get an overview of this year’s projects!",
+    "flyerSrc": "",
+    "status": "previous"
+  },
+  {
+    "title": "Intro to Machine Learning & Basic Classifiers",
+    "tag": "Workshop",
+    "dayLabel": "MON",
+    "dateLabel": "OCT 12",
+    "datetimeText": "4-5 PM / 5-6 PM",
+    "locationText": "DBH 6011 / 4011",
+    "description": "Come learn about machine learning and basic classifiers!",
+    "flyerSrc": "",
+    "status": "previous"
+  },
+  {
+    "title": "Model Selection & Linear Regression",
+    "tag": "Workshop",
+    "dayLabel": "MON",
+    "dateLabel": "OCT 19",
+    "datetimeText": "4-5 PM / 5-6 PM",
+    "locationText": "DBH 6011 / 4011",
+    "description": "Come learn about model selection and linear regression!",
+    "flyerSrc": "",
+    "status": "previous"
+  },
+  {
+    "title": "Model Selection & Linear Regression (Part 2)",
+    "tag": "Workshop",
+    "dayLabel": "MON",
+    "dateLabel": "OCT 26",
+    "datetimeText": "4-5 PM / 5-6 PM",
+    "locationText": "DBH 6011 / 4011",
+    "description": "Continue learning about model selection and linear regression!",
+    "flyerSrc": "",
+    "status": "previous"
+  },
+  {
+    "title": "Board Games and Jeopardy Night",
+    "tag": "Social",
+    "dayLabel": "MON",
+    "dateLabel": "NOV 02",
+    "datetimeText": "4-5 PM",
+    "locationText": "DBH 6011",
+    "description": "Come join us for a night of board games and jeopardy!",
+    "flyerSrc": "/img/events/socials/social1.jpeg",
+    "status": "upcoming"
+  }
+]

@@ -4,7 +4,7 @@ import Link from "next/link";
 import { useState } from "react";
 import { motion } from "framer-motion";
 import type { ReactNode } from "react";
-import data from "@/data/data.json";
+import projectsData from "@/data/projects.json";
 
 type Project = {
   title: string;
@@ -17,7 +17,7 @@ type Project = {
   link?: string;
 };
 
-const projects = data.Projects as Project[];
+const projects = projectsData as Project[];
 
 const hasOpenApplications = projects.some(
   (project) => project.status === "open" && project.link?.trim(),

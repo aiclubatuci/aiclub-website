@@ -1,0 +1,167 @@
+[
+  {
+    "name": "Executive Board",
+    "members": [
+      {
+        "img": "/img/team/2026-27/Sascha.jpeg",
+        "name": "Sascha Hynoski",
+        "role": "Co-President",
+        "linkedin": "https://www.linkedin.com/in/sascha-hynoski-011b10301"
+      },
+      {
+        "img": "/img/team/2026-27/Jasmine.jpeg",
+        "name": "Jasmine Marwaha",
+        "role": "Co-President",
+        "linkedin": "https://www.linkedin.com/in/jasmine-marwaha-524b46214/"
+      },
+      {
+        "img": "/img/team/2026-27/Isha.jpeg",
+        "name": "Isha Kotalwar",
+        "role": "Vice President",
+        "linkedin": "https://www.linkedin.com/in/isha-kotalwar"
+      }
+    ]
+  },
+  {
+    "name": "Marketing",
+    "members": [
+      {
+        "img": "/img/team/2026-27/Neil.jpeg",
+        "name": "Neil Godse",
+        "role": "Lead",
+        "linkedin": "https://www.linkedin.com/in/neilgodse"
+      },
+      {
+        "img": "/img/team/2026-27/Devika.jpg",
+        "name": "Devika Gopakumar",
+        "role": "Coordinator",
+        "linkedin": "http://www.linkedin.com/in/devika-gopakumar1"
+      },
+      {
+        "img": "/img/team/2026-27/Naz.jpg",
+        "name": "Naz Atalay",
+        "role": "Coordinator",
+        "linkedin": "https://www.linkedin.com/in/elifnazatalay/"
+      },
+      {
+        "img": "/img/team/2026-27/Jay.jpeg",
+        "name": "Jay Kim",
+        "role": "Coordinator",
+        "linkedin": "https://www.linkedin.com/in/jaynkim/"
+      },
+      {
+        "img": "/img/team/2026-27/Maanya.jpeg",
+        "name": "Maanya Chhajer",
+        "role": "Coordinator",
+        "linkedin": "http://www.linkedin.com/in/maanya-chhajer/"
+      }
+    ]
+  },
+  {
+    "name": "Logistics",
+    "members": [
+      {
+        "img": "/img/team/2026-27/Leo.jpeg",
+        "name": "Leo Wu-Hacohen",
+        "role": "Logistics Lead",
+        "linkedin": "https://www.linkedin.com/in/leo-wu-hacohen"
+      },
+      {
+        "img": "/img/team/2026-27/Varun.jpeg",
+        "name": "Varun Bhupathi",
+        "role": "Chair",
+        "linkedin": "https://www.linkedin.com/in/varun-bhupathi/",
+        "objectPosition": "50% 0%"
+      },
+      {
+        "img": "/img/team/2026-27/Injila.jpeg",
+        "name": "Injila Adil",
+        "role": "Chair",
+        "linkedin": "https://www.linkedin.com/in/injila-adil"
+      }
+    ]
+  },
+  {
+    "name": "Webmaster",
+    "members": [
+      {
+        "img": "/img/team/2026-27/Johnson.jpeg",
+        "name": "Johnson Nguyen",
+        "role": "Webmaster Lead",
+        "linkedin": "https://www.linkedin.com/in/johnsonng05/"
+      },
+      {
+        "img": "/img/team/2026-27/Neet.jpg",
+        "name": "Neet Patel",
+        "role": "Chair",
+        "linkedin": "https://www.linkedin.com/in/patelneet"
+      }
+    ]
+  },
+  {
+    "name": "Projects",
+    "members": [
+      {
+        "img": "/img/team/2026-27/Jonathan.jpeg",
+        "name": "Jonathan Pan",
+        "role": "Projects Lead",
+        "linkedin": "https://www.linkedin.com/in/jonathanypan/"
+      },
+      {
+        "img": "/img/team/2026-27/Adam.jpeg",
+        "name": "Adam Le",
+        "role": "Chair",
+        "linkedin": "https://www.linkedin.com/in/adam-v-le",
+        "objectPosition": "50% 15%"
+      },
+      {
+        "img": "/img/team/2026-27/Cole.jpeg",
+        "name": "Cole Saldanha",
+        "role": "Chair",
+        "linkedin": "https://www.linkedin.com/in/cole-saldanha/"
+      },
+      {
+        "img": "/img/team/2026-27/Trisha.jpeg",
+        "name": "Trisha Satyavrat",
+        "role": "Chair",
+        "linkedin": "https://www.linkedin.com/in/trishasatyavrat/"
+      },
+      {
+        "img": "/img/team/2026-27/Varshini.jpeg",
+        "name": "Varshini Vijay",
+        "role": "Chair",
+        "linkedin": "https://www.linkedin.com/in/varshinivij/"
+      }
+    ]
+  },
+  {
+    "name": "Workshop",
+    "members": [
+      {
+        "img": "/img/team/2026-27/Shreya.jpg",
+        "name": "Shreya Nakum",
+        "role": "Workshop Lead",
+        "linkedin": "https://www.linkedin.com/in/shreya-nakum/"
+      },
+      {
+        "img": "/img/team/2026-27/Adit.jpeg",
+        "name": "Adit Kantak",
+        "role": "Coordinator",
+        "linkedin": "https://www.linkedin.com/in/adit-kantak/"
+      },
+      {
+        "img": "/img/team/2026-27/David.jpeg",
+        "name": "David Plehn",
+        "role": "Coordinator",
+        "linkedin": "https://www.linkedin.com/in/david-plehn"
+      },
+      {
+        "img": "/img/team/2026-27/Yizhe.jpg",
+        "name": "Yizhe Lan",
+        "role": "Coordinator",
+        "linkedin": "https://www.linkedin.com/in/yizhe-lan-james-1552b9377/",
+        "objectPosition": "50% 0%"
+      }
+    ]
+  }
+]

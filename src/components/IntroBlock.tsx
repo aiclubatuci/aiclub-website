@@ -10,9 +10,9 @@ import {
   useScroll,
   useTransform,
 } from "framer-motion";
-import data from "@/data/data.json";
+import photos from "@/data/photos.json";
 
-const PHOTOS = data.PHOTOS;
+const PHOTOS = photos;
 
 const HIGHLIGHTS = ["artificial intelligence", "builders", "hands-on", "grows"];
 

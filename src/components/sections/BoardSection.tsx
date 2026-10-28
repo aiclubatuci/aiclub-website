@@ -2,7 +2,7 @@
 
 import TeamCard from "@/components/TeamCard";
 import type { Member } from "@/components/TeamCard";
-import data from "@/data/data.json";
+import team from "@/data/team.json";
 import { motion } from "framer-motion";
 
 type Committee = {
@@ -74,7 +74,7 @@ function BoardGrid({ committees }: { committees: Committee[] }) {
 }
 
 export default function BoardSection() {
-  const committees: Committee[] = data.Team;
+  const committees: Committee[] = team;
   return (
     <div className="px-4 pb-16 sm:px-8 md:px-16 lg:px-24">
       <BoardHeader />

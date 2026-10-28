@@ -1,0 +1,29 @@
+[
+  {
+    "src": "/img/landing/meeting.png",
+    "alt": "Members listening to a speaker",
+    "rotate": -9,
+    "top": "10%",
+    "left": "0%",
+    "width": "58%",
+    "z": 1
+  },
+  {
+    "src": "/img/landing/faces.jpg",
+    "alt": "Members engaging in the first meeting",
+    "rotate": 8,
+    "top": "22%",
+    "left": "44%",
+    "width": "58%",
+    "z": 2
+  },
+  {
+    "src": "/img/landing/board.jpg",
+    "alt": "AI at UCI officer team group photo",
+    "rotate": -2,
+    "top": "0%",
+    "left": "16%",
+    "width": "72%",
+    "z": 3
+  }
+]

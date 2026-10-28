@@ -1,7 +1,7 @@
 import type { Event } from "@/components/EventCard";
 import UpcomingEvents from "@/components/UpcomingEvents";
 import PreviousEvents from "@/components/PreviousEvents";
-import data from "@/data/data.json";
+import eventsData from "@/data/events.json";
 
 function EventsHeader() {
   return (
@@ -19,7 +19,7 @@ function EventsHeader() {
 }
 
 export default function EventsSection() {
-  const events: Event[] = data.Events;
+  const events: Event[] = eventsData;
   const upcomingEvents = events.filter((e) => e.status === "upcoming");
   const previousEvents = events.filter((e) => e.status === "previous");
 

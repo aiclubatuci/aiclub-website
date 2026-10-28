@@ -1,4 +1,4 @@
-import data from "../data/data.json";
+import socialsData from "../data/socials.json";
 
 type Email = {
   email: string;
@@ -11,7 +11,7 @@ export type Social = {
 };
 
 export function SocialLinks({ email }: Email) {
-  const socials: Social[] = data.Socials;
+  const socials: Social[] = socialsData;
   return (
     <div className="flex flex-wrap justify-center gap-8">
       <a href={`mailto:${email}`} target="_blank" rel="noreferrer">

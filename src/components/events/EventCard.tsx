@@ -4,17 +4,6 @@ import type { Event } from "@/types";
 export default function EventCard({ event }: { event: Event }) {
   return (
     <div className="flex h-full flex-col overflow-hidden rounded-xl border border-white/[0.08] bg-[#1f1f1f] transition-colors duration-300 hover:border-white/[0.16]">
-      {event.flyerSrc && (
-        <div className="relative aspect-[16/10] shrink-0 bg-[#282828]">
-          <Image
-            src={event.flyerSrc}
-            alt={`${event.title} flyer`}
-            fill
-            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
-            className="object-cover"
-          />
-        </div>
-      )}
       <div className="flex flex-1 flex-col px-4 py-3.5">
         <div className="flex flex-wrap items-center gap-x-2 text-[10px] uppercase tracking-[0.06em] text-white/40">
           <span>{event.dateLabel}</span>

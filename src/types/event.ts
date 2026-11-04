@@ -7,5 +7,6 @@ export type Event = {
   locationText: string;
   flyerSrc?: string;
   description?: string;
+  youtubeId?: string;
   status: string;
 };

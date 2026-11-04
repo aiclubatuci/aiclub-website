@@ -1,5 +1,6 @@
 import Upcoming from "@/components/events/Upcoming";
 import Previous from "@/components/events/Previous";
+import WorkshopVideo from "@/components/events/WorkshopVideo";
 import eventsData from "@/data/events.json";
 import type { Event } from "@/types";
 import type { Metadata } from "next";
@@ -23,13 +24,14 @@ export default function Events() {
         </h1>
         <p className="max-w-2xl text-base leading-relaxed text-gray-300 sm:text-lg">
           We host events with a wide range of topics about each week during the
-          academic quarter, including machine learning, AI techniques, interactive
-          advice from industry speakers, social events, and more.
+          academic quarter, including machine learning, AI techniques,
+          interactive advice from industry speakers, social events, and more.
         </p>
       </section>
       <div className="mx-auto max-w-6xl px-4 sm:px-8 md:px-16 lg:px-24">
         <Upcoming events={upcomingEvents} />
         <Previous events={previousEvents} />
+        <WorkshopVideo events={previousEvents} />
       </div>
     </div>
   );

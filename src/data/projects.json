@@ -29,5 +29,22 @@
     "date": "2026 - Present",
     "image": "/img/projects/ensure.png",
     "link": "https://docs.google.com/forms/d/e/1FAIpQLSe2NoDzu9Pue77tgQY9cj3okFmVZh5g2nh6zagS1ZBTB8rCdg/viewform?usp=dialog"
+  },
+  {
+    "title": "Stretch",
+    "description": "Building the homeowner iOS app for Stretch, a smart home platform that detects leaks via sensors, explains issues in plain language, and lets homeowners book a vetted local professional with one tap. Students will own the mobile development experience and ship a working TestFlight build by early January.",
+    "sponsor": "Stretch",
+    "tech": [
+      "React Native",
+      "Expo",
+      "Swift",
+      "TypeScript",
+      "PostgreSQL",
+      "WebSockets"
+    ],
+    "status": "open",
+    "date": "2026 - Present",
+    "image": "/img/projects/stretch.jpeg",
+    "link": "https://docs.google.com/forms/d/e/1FAIpQLSfJjmuyfuhkXPUDWxvGGuP6B8zxCty7VzhXNdgbNhLemlfvoQ/viewform"
   }
 ]

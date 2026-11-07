@@ -109,5 +109,16 @@
     "description": "Continue learning about linear regression (part 3) and cross validation!",
     "flyerSrc": "/img/events/workshops/workshop5.jpeg",
     "status": "upcoming"
+  },
+  {
+    "title": "Seaside Bakery Fundraiser",
+    "tag": "Fundraiser",
+    "dayLabel": "THUR",
+    "dateLabel": "NOV 12",
+    "datetimeText": "11 AM - 4 PM",
+    "locationText": "Aldrich Hall",
+    "description": "Come support our club and enjoy some delicious donuts or drinks from Seaside Bakery!",
+    "flyerSrc": "/img/events/fundraisers/seaside.jpeg",
+    "status": "upcoming"
   }
 ]

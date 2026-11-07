@@ -5,7 +5,7 @@ import Image from "next/image";
 import { AnimatePresence, motion } from "framer-motion";
 import type { Event } from "@/types";
 
-const MEETING_INFO_SHORT = "MON 4:00–6:00 PM · DBH 6011 / 4011";
+// const MEETING_INFO_SHORT = "MON 4:00–6:00 PM · DBH 6011 / 4011";
 
 const containerVariants = {
   hidden: {},
@@ -42,7 +42,7 @@ export default function Upcoming({ events }: { events: Event[] }) {
         <h2 className="font-serif text-2xl font-normal leading-[1.05] text-white">
           Upcoming
         </h2>
-        <span className="text-sm text-[#4a8fd4]/85">{MEETING_INFO_SHORT}</span>
+        {/* <span className="text-sm text-[#4a8fd4]/85">{MEETING_INFO_SHORT}</span> */}
       </motion.div>
 
       {events.length === 0 || !current ? (

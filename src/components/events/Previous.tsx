@@ -1,8 +1,12 @@
 "use client";
 
+import { useState } from "react";
 import { motion } from "framer-motion";
 import EventCard from "@/components/events/EventCard";
 import type { Event } from "@/types";
+
+const MOBILE_INITIAL = 4;
+const DESKTOP_INITIAL = 8;
 
 const containerVariants = {
   hidden: {},
@@ -21,6 +25,11 @@ const itemVariants = {
 };
 
 export default function Previous({ events }: { events: Event[] }) {
+  const [showAll, setShowAll] = useState(false);
+  const cappedEvents = showAll ? events : events.slice(0, DESKTOP_INITIAL);
+  const hasMoreMobile = events.length > MOBILE_INITIAL;
+  const hasMoreDesktop = events.length > DESKTOP_INITIAL;
+
   return (
     <motion.section
       variants={containerVariants}
@@ -41,17 +50,41 @@ export default function Previous({ events }: { events: Event[] }) {
           </p>
         </motion.div>
       ) : (
-        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
-          {events.map((event, index) => (
-            <motion.div
-              key={`${event.title}-${event.dateLabel}-${index}`}
-              variants={itemVariants}
-              className="h-full"
+        <>
+          <motion.div
+            className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4"
+            variants={containerVariants}
+            initial="hidden"
+            animate="visible"
+          >
+            {cappedEvents.map((event, index) => (
+              <motion.div
+                key={`${event.title}-${event.dateLabel}-${index}`}
+                variants={itemVariants}
+                className={`h-full${
+                  !showAll && index >= MOBILE_INITIAL ? " hidden lg:block" : ""
+                }`}
+              >
+                <EventCard event={event} />
+              </motion.div>
+            ))}
+          </motion.div>
+          {hasMoreMobile && (
+            <div
+              className={`mt-8 flex justify-center${
+                hasMoreDesktop ? "" : " lg:hidden"
+              }`}
             >
-              <EventCard event={event} />
-            </motion.div>
-          ))}
-        </div>
+              <button
+                type="button"
+                onClick={() => setShowAll((prev) => !prev)}
+                className="cursor-pointer text-xs uppercase tracking-[0.15em] text-gray-400 transition-colors hover:text-white"
+              >
+                {showAll ? "Show less" : "See all"}
+              </button>
+            </div>
+          )}
+        </>
       )}
     </motion.section>
   );

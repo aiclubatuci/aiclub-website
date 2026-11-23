@@ -95,6 +95,13 @@
         "name": "Neet Patel",
         "role": "Chair",
         "linkedin": "https://www.linkedin.com/in/patelneet"
+      },
+      {
+        "img": "/img/team/2026-27/Sumanth.jpg",
+        "name": "Sumanth Pallamreddy",
+        "role": "Chair",
+        "linkedin": "https://www.linkedin.com/in/spallamreddy/",
+        "objectPosition": "center bottom"
       }
     ]
   },

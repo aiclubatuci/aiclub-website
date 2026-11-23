@@ -9,11 +9,14 @@ npm install
 npm run dev
 ```
 
-The newsletter form also needs these environment variables in `.env.local`:
+The newsletter form writes to Google Sheets. Add these to `.env.local`:
 
-- `MAIL_CHIMP_API_KEY`
-- `MAIL_CHIMP_SERVER_PREFIX`
-- `MAIL_CHIMP_AUDIENCE_ID`
+- `GOOGLE_SERVICE_ACCOUNT_EMAIL`
+- `GOOGLE_PRIVATE_KEY`
+- `GOOGLE_SHEET_ID`
+- `GOOGLE_SHEET_RANGE`
+
+Share the spreadsheet with the service account email as an **Editor**.
 
 ## File structure
 

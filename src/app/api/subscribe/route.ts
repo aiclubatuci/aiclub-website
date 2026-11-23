@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import mailchimp from "@mailchimp/mailchimp_marketing";
+import { google } from "googleapis";
 import type { SubscribeRequest } from "@/types";
 
 function mustGetEnv(name: string): string {
@@ -10,16 +10,46 @@ function mustGetEnv(name: string): string {
   return value;
 }
 
-mailchimp.setConfig({
-  apiKey: mustGetEnv("MAIL_CHIMP_API_KEY"),
-  server: mustGetEnv("MAIL_CHIMP_SERVER_PREFIX"),
-});
+/** Matches existing sheet format, e.g. 11/22/2026 18:39:59 (Pacific). */
+function formatTimestamp(date = new Date()): string {
+  const parts = new Intl.DateTimeFormat("en-US", {
+    timeZone: "America/Los_Angeles",
+    year: "numeric",
+    month: "2-digit",
+    day: "2-digit",
+    hour: "2-digit",
+    minute: "2-digit",
+    second: "2-digit",
+    hour12: false,
+  }).formatToParts(date);
+
+  const get = (type: Intl.DateTimeFormatPartTypes) =>
+    parts.find((part) => part.type === type)?.value ?? "";
+
+  return `${get("month")}/${get("day")}/${get("year")} ${get("hour")}:${get("minute")}:${get("second")}`;
+}
+
+function getSheetsClient() {
+  const clientEmail = mustGetEnv("GOOGLE_SERVICE_ACCOUNT_EMAIL");
+  const privateKey = mustGetEnv("GOOGLE_PRIVATE_KEY").replace(/\\n/g, "\n");
+  const sheetId = mustGetEnv("GOOGLE_SHEET_ID");
+
+  const auth = new google.auth.JWT({
+    email: clientEmail,
+    key: privateKey,
+    scopes: ["https://www.googleapis.com/auth/spreadsheets"],
+  });
+
+  return {
+    sheets: google.sheets({ version: "v4", auth }),
+    sheetId,
+  };
+}
 
 export async function POST(req: Request) {
   try {
     const body: SubscribeRequest = await req.json();
-
-    const email = body.email?.trim();
+    const email = body.email?.trim().toLowerCase();
     const firstName = body.firstName?.trim() ?? "";
     const lastName = body.lastName?.trim() ?? "";
 
@@ -30,33 +60,24 @@ export async function POST(req: Request) {
       );
     }
 
-    const audienceId = mustGetEnv("MAIL_CHIMP_AUDIENCE_ID");
+    const { sheets, sheetId } = getSheetsClient();
+    // Expected columns: Timestamp | Email | First Name | Last Name
+    const range = process.env.GOOGLE_SHEET_RANGE;
 
-    await mailchimp.lists.addListMember(audienceId, {
-      email_address: email,
-      status: "subscribed",
-      merge_fields: {
-        FNAME: firstName,
-        LNAME: lastName,
-      },
+    const existing = await sheets.spreadsheets.values.get({
+      spreadsheetId: sheetId,
+      range,
     });
 
-    return NextResponse.json(
-      {
-        successMessage: `Success! ${email} was successfully subscribed to our mailing list!`,
-      },
-      { status: 200 },
+    const rows = existing.data.values ?? [];
+    const alreadySubscribed = rows.some(
+      (row, index) =>
+        index > 0 &&
+        typeof row[1] === "string" &&
+        row[1].trim().toLowerCase() === email,
     );
-  } catch (err: unknown) {
-    const title =
-      typeof err === "object" &&
-      err !== null &&
-      "response" in err &&
-      typeof (err as any).response?.body?.title === "string"
-        ? (err as any).response.body.title
-        : null;
 
-    if (title === "Member Exists") {
+    if (alreadySubscribed) {
       return NextResponse.json(
         {
           errorMessage:
@@ -66,7 +87,24 @@ export async function POST(req: Request) {
       );
     }
 
-    console.error("Mailchimp subscribe error:", err);
+    await sheets.spreadsheets.values.append({
+      spreadsheetId: sheetId,
+      range,
+      valueInputOption: "RAW",
+      insertDataOption: "INSERT_ROWS",
+      requestBody: {
+        values: [[formatTimestamp(), email, firstName, lastName]],
+      },
+    });
+
+    return NextResponse.json(
+      {
+        successMessage: `Success! You've been successfully subscribed to our mailing list!`,
+      },
+      { status: 200 },
+    );
+  } catch (err: unknown) {
+    console.error("Google Sheets subscribe error:", err);
 
     return NextResponse.json(
       {

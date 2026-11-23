@@ -9,9 +9,9 @@
     "lint": "eslint"
   },
   "dependencies": {
-    "@mailchimp/mailchimp_marketing": "^3.0.80",
     "@vercel/analytics": "^2.0.1",
     "framer-motion": "^12.43.0",
+    "googleapis": "^189.0.0",
     "next": "^16.4.3",
     "react": "19.1.0",
     "react-dom": "19.1.0",
@@ -20,7 +20,6 @@
   "devDependencies": {
     "@eslint/eslintrc": "^3",
     "@tailwindcss/postcss": "^4.1.17",
-    "@types/mailchimp__mailchimp_marketing": "^3.0.22",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
